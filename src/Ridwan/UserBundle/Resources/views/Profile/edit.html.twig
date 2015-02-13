@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block dashboard %}
+{% endblock  %}
+
+{% block content %}
+    <br><br>
+{% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+    <br><br>
+{% endblock  %}

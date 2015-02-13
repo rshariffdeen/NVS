@@ -1,0 +1,80 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Opportunities</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Shortdescription</th>
+                <td>{{ entity.shortdescription }}</td>
+            </tr>
+            <tr>
+                <th>Startdate</th>
+                <td>{{ entity.startdate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Enddate</th>
+                <td>{{ entity.enddate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Numberofvolunteers</th>
+                <td>{{ entity.numberofvolunteers }}</td>
+            </tr>
+            <tr>
+                <th>Agegroup</th>
+                <td>{{ entity.agegroup }}</td>
+            </tr>
+            <tr>
+                <th>Training</th>
+                <td>{{ entity.training }}</td>
+            </tr>
+            <tr>
+                <th>Expenses</th>
+                <td>{{ entity.expenses }}</td>
+            </tr>
+            <tr>
+                <th>Difficulty</th>
+                <td>{{ entity.difficulty }}</td>
+            </tr>
+            <tr>
+                <th>Systemmatch</th>
+                <td>{{ entity.systemmatch }}</td>
+            </tr>
+            <tr>
+                <th>Interested</th>
+                <td>{{ entity.interested }}</td>
+            </tr>
+            <tr>
+                <th>Enrolled</th>
+                <td>{{ entity.enrolled }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('opportunities') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('opportunities_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Notification" table="notification">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="heading" type="string" column="heading" length="255" nullable="false"/>
+    <field name="details" type="text" column="details" nullable="false"/>
+    <field name="timestamp" type="date" column="timestamp" nullable="false"/>
+    <field name="userid" type="integer" column="userid" nullable="false"/>
+    <field name="project" type="integer" column="project" nullable="false"/>
+    <field name="opportunity" type="integer" column="opportunity" nullable="false"/>
+    <field name="seen" type="boolean" column="seen" nullable="true"/>
+    <field name="type" type="smallint" column="type" nullable="true"/>
+  </entity>
+</doctrine-mapping>

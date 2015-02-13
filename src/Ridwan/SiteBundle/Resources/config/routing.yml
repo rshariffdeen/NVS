@@ -1,0 +1,71 @@
+ridwan_site_home:
+    path:     /home
+    defaults: { _controller: RidwanSiteBundle:Home:home }
+
+ridwan_site_loginpage:
+    path:     /login
+    defaults: { _controller: RidwanSiteBundle:Signing:login }
+
+ridwan_auth_login:
+    path:     /Authlogin
+    defaults: { _controller: RidwanSiteBundle:Signing:check }
+    methods: POST
+
+ridwan_auth_register:
+    path:     /register
+    defaults: {_controller: FOSUserBundle:Registration:register  }
+
+
+ridwan_auth_Activate:
+    pattern:  /activate/{userID}
+    defaults: { _controller: RidwanSiteBundle:Authentication:activate }
+
+ridwan_auth_Reject:
+    pattern:  /reject/{userID}
+    defaults: { _controller: RidwanSiteBundle:Authentication:reject }
+
+ridwan_auth_checkUserName:
+    pattern: /checkUserName/{name}
+    defaults: {_controller: RidwanSiteBundle:Authentication:checkUserName}
+    methods: POST
+
+ridwan_auth_checkEmail:
+    pattern: /checkEmail/{email}
+    defaults: {_controller: RidwanSiteBundle:Authentication:checkEmail}
+    methods: POST
+
+ridwan_site_approve_volunteer:
+    pattern: /approve/volunteer/{userID}
+    defaults: {_controller: RidwanSiteBundle:Approval:volunteer}
+
+ridwan_site_approve_organization:
+    pattern: /approve/organization/{userID}
+    defaults: {_controller: RidwanSiteBundle:Approval:organization}
+
+ridwan_site_approve_opportunity:
+    pattern: /approve/opportunity/{opID}
+    defaults: {_controller: RidwanSiteBundle:Approval:opportunity}
+
+ridwan_site_approve_referee:
+    pattern: /approve/referee/{userID}
+    defaults: {_controller: RidwanSiteBundle:Approval:referee}
+
+ridwan_site_reject_volunteer:
+    pattern: /reject/volunteer/{userID}
+    defaults: {_controller: RidwanSiteBundle:Rejection:volunteer}
+
+ridwan_site_reject_organization:
+    pattern: /reject/organization/{userID}
+    defaults: {_controller: RidwanSiteBundle:Rejection:organization}
+
+ridwan_site_reject_opportunity:
+    pattern: /reject/opportunity/{opID}
+    defaults: {_controller: RidwanSiteBundle:Rejection:opportunity}
+
+ridwan_site_reject_referee:
+    pattern: /reject/referee/{userID}
+    defaults: {_controller: RidwanSiteBundle:Rejection:referee}
+
+ridwan_site_profile:
+    pattern: /view/profile/{ID}
+    defaults: {_controller: RidwanSiteBundle:Profile:profile}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Education" table="Education">
+
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="institution" type="string" column="institution" length="45" nullable="false"/>
+    <field name="field" type="string" column="field" length="45" nullable="false"/>
+    <field name="degree" type="string" column="degree" length="45" nullable="false"/>
+    <field name="duration" type="string" column="duration" length="45" nullable="true"/>
+    <many-to-one field="user" target-entity="Authentication">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

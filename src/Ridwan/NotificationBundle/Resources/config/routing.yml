@@ -1,0 +1,11 @@
+ridwan_checkRegisterEmail:
+    pattern:  /check
+    defaults: { _controller: RidwanNotificationBundle:Default:index }  
+    
+ridwan_notification_see:
+    pattern:  /home/{notificationID}
+    defaults: { _controller: RidwanNotificationBundle:Notification:seen }
+    
+ridwan_allnotification:
+    pattern:  /allnotifications
+    defaults: { _controller: RidwanNotificationBundle:Notification:showAll }    

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Opportunities" table="Opportunities">
+    <unique-constraints>
+      <unique-constraint name="project_UNIQUE" columns="project"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="string" column="title" length="45" nullable="false"/>
+    <field name="cause" type="string" column="cause" length="45" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="location" type="text" column="location" nullable="false"/>
+    <field name="shortdescription" type="text" column="shortdescription" nullable="true"/>
+    <field name="startdate" type="text" column="startdate" nullable="true"/>
+    <field name="enddate" type="text" column="enddate" nullable="true"/>
+    <field name="numberofvolunteers" type="integer" column="numberofvolunteers" nullable="false"/>
+    <field name="agegroup" type="string" column="agegroup" length="2" nullable="true"/>
+    <field name="training" type="text" column="training" nullable="true"/>
+    <field name="expenses" type="text" column="expenses" nullable="true"/>
+    <field name="difficulty" type="string" column="difficulty" length="2" nullable="false"/>
+    <field name="systemmatch" type="array" column="systemMatch" nullable="true"/>
+    <field name="completed" type="array" column="completed" nullable="true"/>
+    <field name="interested" type="array" column="notinterested" nullable="true"/>
+    <field name="organization" type="integer" column="organization"/>
+    <field name="status" type="integer" column="status"/>
+    <field name="enrolled" type="array" column="enrolled" nullable="true"/>
+    <field name="role" type="text" column="role" nullable="true"/>
+    <field name="time" type="array" column="time" nullable="true"/>
+
+  </entity>
+</doctrine-mapping>

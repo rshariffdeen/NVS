@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Locations" table="Locations">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="division" type="text" column="division"  nullable="false"/>
+    <field name="province" type="text" column="province"  nullable="false"/>
+      <field name="district" type="text" column="district"  nullable="false"/>
+
+  </entity>
+</doctrine-mapping>

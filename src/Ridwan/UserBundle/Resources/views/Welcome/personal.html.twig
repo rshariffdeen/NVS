@@ -1,0 +1,114 @@
+{% extends '::base.html.twig' %}
+
+{% block dashboard %}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div id="content" class="span10">
+        <div class="row-fluid">
+
+            <h1>Personal Information</h1>
+            <hr>
+
+
+
+    <br><br>
+    {{ form_start(form,{'attr':{'id':'myform','class':'form-horizontal center fs-form fs-form-full','autocomplete':'off'}}) }}
+
+
+
+            <div class="control-group primary">
+                {{form_label(form.firstname, 'First Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.firstname)}}
+                    <span class="help-inline">{{ form_errors(form.firstname) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{form_label(form.lastname, 'Last Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.lastname)}}
+                    <span class="help-inline">{{ form_errors(form.lastname) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{form_label(form.category, 'Category',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.category)}}
+                    <span class="help-inline">{{ form_errors(form.category) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{form_label(form.nationality, 'Nationality',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.nationality)}}
+                    <span class="help-inline">{{ form_errors(form.nationality) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{form_label(form.nicorpassport, 'Identification',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{ form_widget(form.nicorpassport,{'attr':{'class':'fs-anim-lower','id':'q4','placeholder':"NIC or Passport Number"}})}}
+                    <span class="help-inline">{{ form_errors(form.nicorpassport) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{form_label(form.dateofbirth, 'Date of Birth',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.dateofbirth,{'value':"now"|date("m/d/Y")})}}
+                    <span class="help-inline">{{ form_errors(form.dateofbirth) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{form_label(form.gender, 'Sex',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.gender)}}
+                    <span class="help-inline">{{ form_errors(form.gender) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{form_label(form.Civilstatus, 'Civil Status',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.Civilstatus)}}
+                    <span class="help-inline">{{ form_errors(form.Civilstatus) }}</span>
+                </div>
+            </div>
+
+
+            {{ form_widget(form._token) }}
+            <div class="control-group primary">
+                {{form_label(form.Civilstatus, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <span class="help-inline">{{ form_errors(form.Civilstatus) }}</span>
+                </div>
+            </div>
+
+
+    </form>
+
+</div></div>
+
+
+{% endblock %}
+

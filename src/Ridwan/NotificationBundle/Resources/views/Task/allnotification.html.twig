@@ -1,0 +1,104 @@
+
+{%  extends "MoraspiritStyleBundle:basic:basic.html.twig" %}
+
+{% block content %}
+<div id="content" class="span10">
+
+    <div class="row-fluid">
+        <div class="box span12">
+            <div class="box-header well" data-original-title>
+                <h2><i class="icon-list"></i> Your Notifications </h2>
+                <div class="box-icon">
+
+                    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+
+                </div>
+            </div>
+            <div class="box-content">
+                {% if AllNotifications != null %}
+                        <div class="box-content alerts">
+                            {% for notification in AllNotifications %}
+                             {% if notification.task == 0 %}
+                                
+                                <a href="{{path('moraspirit_project_details_notification',{'projectID':notification.project,'notificationID':notification.id})}}"><li>
+				
+                                {% else %}
+                          
+                                <a href="{{path('moraspirit_task_details_notification',{'taskID':notification.task,'notificationID':notification.id})}}"> <li>
+                                
+                                {% endif %}
+                            
+                           
+                             {% if notification.type == 4 %}
+                            <div class="alert alert-error">
+                                <button url="{{ path('moraspirit_notification_see', { 'notificationID': notification.id }) }}" id="{{notification.id}}"type="button" class=" close btn-comment">×</button>
+                                <div class = "pull-right">
+                                {{ notification.timestamp|date('Y-m-d H:i:s')}}
+                                </div>
+
+                                <strong><h5>{{notification.heading}}</h5></strong>
+                                
+                                {{notification.details}}
+                                <br>
+                            </div>
+
+                            {% endif %}
+
+                              {% if notification.type == 3 %}
+                            <div class="alert alert-success">
+                                <button url="{{ path('moraspirit_notification_see', { 'notificationID': notification.id }) }}" id="{{notification.id}}"type="button" class=" close btn-comment">×</button>
+ 				<div class = "pull-right">
+                                {{ notification.timestamp|date('Y-m-d H:i:s')}}
+                                </div>
+                                <strong><h5>{{notification.heading}}</h5></strong>
+                               
+                                {{notification.details}}<br>
+                               
+                               
+                                
+                            </div>
+
+                            {% endif %}
+
+                              {% if notification.type == 2 %}
+                            <div class="alert alert-heading">
+                                <button url="{{ path('moraspirit_notification_see', { 'notificationID': notification.id }) }}" id="{{notification.id}}"type="button" class=" close btn-comment">×</button>
+				<div class = "pull-right">
+                                {{ notification.timestamp|date('Y-m-d H:i:s')}}
+                                </div>
+                                <strong><h5>{{notification.heading}}</h5></strong>
+                          
+                                {{notification.details}}<br>
+                            </div>
+
+                            {% endif %}
+                              {% if notification.type == 1 %}
+                            <div class="alert alert-info">
+                                <button url="{{ path('moraspirit_notification_see', { 'notificationID': notification.id }) }}" id="{{notification.id}}"type="button" class=" close btn-comment">×</button>
+				<div class = "pull-right">
+                                {{ notification.timestamp|date('Y-m-d H:i:s')}}
+                                </div>
+                                <strong><h5>{{notification.heading}}</h5></strong>
+                         
+                                {{notification.details}}<br>
+
+                            </div>
+
+                            {% endif %}
+				</li>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <li align ="center">
+                            no notifications
+                        </li></a>
+                        {% endif %}	
+            </div>
+        </div><!--/span-->
+    </div><!--/row-->
+
+</div>
+
+
+
+{% endblock %}

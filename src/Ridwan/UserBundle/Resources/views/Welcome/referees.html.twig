@@ -1,0 +1,135 @@
+{% extends '::base.html.twig' %}
+{% block dashboard %}
+{% endblock %}
+{% block content %}
+    <div id="content" class="span10">
+
+        <div class="row-fluid">
+            <br><br>
+
+                <h1>Referees</h1><hr>
+
+            <br><br>
+
+
+                    {{ form_start(form) }}
+
+            <table>
+                <tr>
+                    <td width ='5%'></td>
+                    <td width ='40%'>
+                        <h3>Referee 1</h3>
+
+                        <div class="control-group primary">
+                            {{form_label(form.referees[0].name, 'Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[0].name)}}
+                                <span class="help-inline">{{ form_errors(form.referees[0].name) }}</span>
+                            </div>
+                        </div>
+                        <div class="control-group primary">
+                            {{form_label(form.referees[0].address, 'Address',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[0].address)}}
+                                <span class="help-inline">{{ form_errors(form.referees[0].address) }}</span>
+                            </div>
+                        </div>
+                        <div class="control-group primary">
+                            {{form_label(form.referees[0].email, 'Email',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[0].email)}}
+                                <span class="help-inline">{{ form_errors(form.referees[0].email) }}</span>
+                            </div>
+                        </div>
+                        <div class="control-group primary">
+                            {{form_label(form.referees[0].contactnumber, 'Phone Number',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[0].contactnumber)}}
+                                <span class="help-inline">{{ form_errors(form.referees[0].contactnumber) }}</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group primary">
+                            {{form_label(form.referees[0].mobilenumber, 'Mobile Number',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[0].mobilenumber)}}
+                                <span class="help-inline">{{ form_errors(form.referees[0].mobilenumber) }}</span>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td width ='10%'></td>
+                    <td width ='40%'>
+
+                        <h3>Referee 2</h3>
+
+                        <div class="control-group primary">
+                            {{form_label(form.referees[1].name, 'Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[1].name)}}
+                                <span class="help-inline">{{ form_errors(form.referees[1].name) }}</span>
+                            </div>
+                        </div>
+                        <div class="control-group primary">
+                            {{form_label(form.referees[1].address, 'Address',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[1].address)}}
+                                <span class="help-inline">{{ form_errors(form.referees[1].address) }}</span>
+                            </div>
+                        </div>
+                        <div class="control-group primary">
+                            {{form_label(form.referees[1].email, 'Email',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[1].email)}}
+                                <span class="help-inline">{{ form_errors(form.referees[1].email) }}</span>
+                            </div>
+                        </div>
+                        <div class="control-group primary">
+                            {{form_label(form.referees[1].contactnumber, 'Phone Number',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[1].contactnumber)}}
+                                <span class="help-inline">{{ form_errors(form.referees[1].contactnumber) }}</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group primary">
+                            {{form_label(form.referees[1].mobilenumber, 'Mobile Number',{ 'label_attr': {'class': 'control-label'} })}}
+
+                            <div class="controls">
+                                {{form_widget(form.referees[1].mobilenumber)}}
+                                <span class="help-inline">{{ form_errors(form.referees[1].mobilenumber) }}</span>
+                            </div>
+                        </div>
+
+
+                    </td>
+                    <td width ='5%'></td>
+
+                </tr>
+
+            </table>
+            <br><br>
+            <div class="center span4"><button type="submit" class="btn span12 btn-success">Submit</button></div>
+
+
+
+            {{ form_end(form) }}
+
+        </div>
+
+    </div>
+    </div>
+
+
+
+{% endblock %}
+

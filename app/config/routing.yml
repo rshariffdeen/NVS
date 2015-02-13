@@ -1,0 +1,46 @@
+ridwan_user:
+    resource: "@RidwanUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ridwan_opportunity:
+    resource: "@RidwanOpportunityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ridwan_project:
+    resource: "@RidwanProjectBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ridwan_notification:
+    resource: "@RidwanNotificationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ridwan_entity:
+    resource: "@RidwanEntityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ridwan_site:
+    resource: "@RidwanSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+isuru_stat:
+    resource: "@IsuruStatBundle/Resources/config/routing.yml"
+    prefix:   /

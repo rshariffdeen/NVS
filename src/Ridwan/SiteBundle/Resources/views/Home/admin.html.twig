@@ -1,0 +1,80 @@
+{% extends '::base.html.twig' %}
+    {% block dashboard %}
+
+        <div class="span2 main-menu-span">
+
+
+
+
+            <div class="well nav-collapse sidebar-nav">
+                <p align="center">
+                    {%  if app.user.path %}
+                        <img src="{{app.user.path}}" width="150px" height="150px" style="border: 2px">
+                    {%  else  %}
+                        <img src="{{ asset('bundles/ridwansite/images/default.jpg') }}" width="150px" height="150px" style="border: 2px">
+                    {%  endif %}
+                    <br><br><strong>{{app.session.get('name')}}</strong>
+                </p>
+                <ul class="nav nav-tabs nav-stacked main-menu">
+                    <li class="nav-header hidden-tablet">Dashboard</li>
+                    <li><a class="ajax-link" href=""><i class="icon-star"></i><span class="hidden-tablet"> Special 1</span></a></li>
+                    <li><a class="ajax-link" href=""><i class="icon-star"></i><span class="hidden-tablet"> Special 2</span></a></li>
+
+                    <li class="nav-header hidden-tablet">Dashboard</li>
+                    <li><a class="ajax-link" href=""><i class="icon-home"></i><span class="hidden-tablet"> Home</span></a></li>
+                    <li><a class="ajax-link" href=""><i class="icon-edit"></i><span class="hidden-tablet"> Opportunities</span></a></li>
+                    <li><a class="ajax-link" href=""><i class="icon-list-alt"></i><span class="hidden-tablet"> Assignments</span></a></li>
+                    <li><a class="ajax-link" href=""><i class="icon-user"></i><span class="hidden-tablet"> Users</span></a></li>
+                    <li><a class="ajax-link" href=""><i class="icon-eye-open"></i><span class="hidden-tablet"> Statistics</span></a></li>
+
+
+
+                </ul>
+            </div><!--/.well -->
+        </div><!--/span-->
+    {% endblock %}
+{% block content %}
+    <div class="row-fluid">
+        <div class="box span10">
+            <div class="box-header well" data-original-title>
+                <h2><i class="icon-user"></i> Volunteers Approval</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="box-content">
+                    <ul class="dashboard-list">
+                        {% for member in volunteers %}
+                            <li>
+
+                                <div class ="pull-right">
+                                    {% if member.status == 1 %}
+                                        <span class="label label-warning">Pending Approval</span>   <br><br>
+                                        <button url="{{ path('ridwan_site_approve_volunteer', { 'userID': member.id }) }}" id="{{member.id}}" class="btn btn-mini btn-round btn-complete"><i class="icon-ok"></i></button>
+                                        <button url="{{ path('ridwan_site_reject_volunteer', { 'userID': member.id }) }}" id="{{member.id}}" class="btn btn-mini btn-round btn-delete"><i class="icon-remove"></i></button>
+                                    {% else %}
+                                        <span class="label label-success">Activated</span>   <br><br>
+                                    {% endif %}
+                                </div>
+                                <a href="{{path('ridwan_profile_volunteer',{'userID' :member.id})}}">
+
+                                        <img class="dashboard-avatar" alt="Not Found" src="/web/bundles/User/Photo/default.jpg">
+
+                                    <strong>Name:</strong> {{member.firstname}} {{member.lastname}}</a>
+                                </a><br>
+                                <strong>Nationality:</strong> {{member.nationality}}<br>
+                                <strong>Category:</strong> {{member.category}}
+                                <br><br>
+                            </li>
+                        {% endfor %}
+
+
+                    </ul>
+                </div>
+            </div>
+        </div><!--/span-->
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,41 @@
+{% extends 'RidwanUserBundle:Welcome:index.html.twig' %}
+
+{% block content %}
+<div class="fs-form-wrap" id="fs-form-wrap">
+    <div class="fs-title">
+            <h1>Organization Information</h1>
+   </div>
+
+
+    <br><br><br><br>
+    {{ form_start(form,{'attr':{'id':'myform','class':'fs-form fs-form-full','autocomplete':'off'}}) }}
+        <ol class="fs-fields">
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q1" data-info="Organization registered name">What's the name of your Organization?</label>
+                {{ form_widget(form.name,{'class':'fs-anim-lower','attr':{'id':'q1','placeholder':"registered name"}}) }}
+                {{ form_errors(form.name) }}
+
+            </li>
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q2" data-info="branch you represent">Where is it located?</label>
+                {{ form_widget(form.branch,{'attr':{'class':'fs-anim-lower','id':'q2','placeholder':"which branch"}}) }}
+                {{ form_errors(form.branch) }}
+            </li>
+
+            <li data-input-trigger>
+                <label class="fs-field-label fs-anim-upper"  >Select the type of your Organization</label>
+                {{ form_widget(form.type,{'attr':{'class':'cs-select cs-skin-boxes fs-anim-lower','id':'q6'}}) }}
+                {{ form_errors(form.type) }}
+
+            </li>
+
+
+        </ol><!-- /fs-fields -->
+            {{ form_widget(form._token) }}
+        <button class="fs-submit" type="submit">Send answers</button>
+    </form><!-- /fs-form -->
+
+</div>
+
+{% endblock %}
+

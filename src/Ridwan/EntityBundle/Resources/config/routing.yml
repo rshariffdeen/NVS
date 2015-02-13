@@ -1,0 +1,121 @@
+ridwan_education_index:
+    pattern:  /education
+    defaults: { _controller: RidwanEntityBundle:Education:index }
+ridwan_education_new:
+    pattern:  /education/new
+    defaults: { _controller: RidwanEntityBundle:Education:new }
+ridwan_education_create:
+    pattern:  /education/create
+    defaults: { _controller: RidwanEntityBundle:Education:create }
+ridwan_education_show:
+    pattern:  /education/show
+    defaults: { _controller: RidwanEntityBundle:Education:show }
+ridwan_education_edit:
+    pattern:  /education/edit
+    defaults: { _controller: RidwanEntityBundle:Education:edit }
+ridwan_education_delete:
+    pattern:  /education/delete
+    defaults: { _controller: RidwanEntityBundle:Education:delete }
+
+ridwan_employment_index:
+    pattern:  /employment
+    defaults: { _controller: RidwanEntityBundle:Employment:index }
+ridwan_employment_new:
+    pattern:  /employment/new
+    defaults: { _controller: RidwanEntityBundle:Employment:new }
+ridwan_employment_create:
+    pattern:  /employment/create
+    defaults: { _controller: RidwanEntityBundle:Employment:create }
+ridwan_employment_show:
+    pattern:  /employment/show
+    defaults: { _controller: RidwanEntityBundle:Employment:show }
+ridwan_employment_edit:
+    pattern:  /employment/edit
+    defaults: { _controller: RidwanEntityBundle:Employment:edit }
+ridwan_employment_delete:
+    pattern:  /employment/delete
+    defaults: { _controller: RidwanEntityBundle:Employment:delete }
+
+ridwan_organization_edit:
+    pattern:  /organization/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Organization:edit }
+
+ridwan_organization_update:
+    pattern:  /organization/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Organization:update }
+
+ridwan_organization_delete:
+    pattern:  /organization/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Organization:delete }
+
+ridwan_organizationcontact_edit:
+    pattern:  /organization/contact/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Organizationcontactdetails:edit }
+
+ridwan_organizationcontact_update:
+    pattern:  /organization/contact/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Organizationcontactdetails:update }
+
+ridwan_organizationcontact_delete:
+    pattern:  /organization/contact/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Organizationcontactdetails:delete }
+
+ridwan_opportunity_edit:
+    pattern:  /opportunity/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Opportunities:edit }
+
+ridwan_opportunity_update:
+    pattern:  /opportunity/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Opportunities:update }
+
+ridwan_opportunity_delete:
+    pattern:  /opportunity/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Opportunities:delete }
+
+ridwan_profile_edit:
+    pattern:  /profile/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Profile:edit }
+
+ridwan_profile_update:
+    pattern:  /profile/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Profile:update }
+
+ridwan_profile_delete:
+    pattern:  /profile/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Profile:delete }
+
+ridwan_volunteerpersonal_edit:
+    pattern:  /volunteer/personal/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Volunteerpersonal:edit }
+
+ridwan_volunteerpersonal_update:
+    pattern:  /volunteer/personal/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Volunteerpersonal:update }
+
+ridwan_volunteerpersonal_delete:
+    pattern:  /volunteer/personal/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Volunteerpersonal:delete }
+
+ridwan_volunteercontact_edit:
+    pattern:  /volunteer/contact/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Volunteercontactdetails:edit }
+
+ridwan_volunteercontact_update:
+    pattern:  /volunteer/contact/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Volunteercontactdetails:update }
+
+ridwan_volunteercontact_delete:
+    pattern:  /volunteer/contact/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Volunteercontactdetails:delete }
+
+ridwan_availability_edit:
+    pattern:  /volunteer/availability/{id}/edit
+    defaults: { _controller: RidwanEntityBundle:Availability:edit }
+
+ridwan_availability_update:
+    pattern:  /volunteer/availability/{id}/update
+    defaults: { _controller: RidwanEntityBundle:Availability:update }
+
+ridwan_availability_delete:
+    pattern:  /volunteer/availability/{id}/delete
+    defaults: { _controller: RidwanEntityBundle:Availability:delete }

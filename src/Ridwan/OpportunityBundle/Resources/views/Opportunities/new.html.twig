@@ -1,0 +1,168 @@
+{%  extends "::base.html.twig" %}
+
+
+{% block content %}
+<div id="content" class="span10">
+    <div class="row-fluid">
+
+        <h2><i class="icon-locked"></i> Create Opportunity</h2>
+        <hr>
+        {{ form_start(form) }}
+
+        <div class="control-group primary">
+                    {{form_label(form.title, 'Title',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.title)}}
+                <span class="help-inline">{{ form_errors(form.title) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.role, 'Role of the Volunteer',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.role)}}
+                <span class="help-inline">{{ form_errors(form.role) }}</span>
+            </div>
+        </div>
+
+
+        <div class="control-group primary">
+                    {{form_label(form.difficulty, 'Difficulty',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.difficulty)}}
+                <span class="help-inline">{{ form_errors(form.difficulty) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.cause, 'Type',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.cause)}}
+                <span class="help-inline">{{ form_errors(form.cause) }}</span>
+            </div>
+        </div>
+        
+         <div class="control-group primary">
+                    {{form_label(form.description, 'Long Description',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.description)}}
+                <span class="help-inline">{{ form_errors(form.description) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.shortdescription, 'Short Description',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.shortdescription)}}
+                <span class="help-inline">{{ form_errors(form.shortdescription) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.location, 'Location ',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.location)}}
+                <span class="help-inline">{{ form_errors(form.location) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.numberofvolunteers, 'Number of Volunteers Required',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.numberofvolunteers)}}
+                <span class="help-inline">{{ form_errors(form.numberofvolunteers) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.agegroup, 'Age Group',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.agegroup)}}
+                <span class="help-inline">{{ form_errors(form.agegroup) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.training, 'Training',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.training)}}
+                <span class="help-inline">{{ form_errors(form.training) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.expenses, 'Expenses',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.expenses)}}
+                <span class="help-inline">{{ form_errors(form.expenses) }}</span>
+            </div>
+        </div>
+        
+
+        
+        <div class="control-group primary">
+                    {{form_label(form.startdate, 'Start Date',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.startdate,{'value':"now"|date("m/d/Y")})}}
+                <span class="help-inline">{{ form_errors(form.startdate) }}</span>
+            </div>
+        </div>
+        
+        <div class="control-group primary">
+                    {{form_label(form.enddate, 'Due Date',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.enddate,{'value':"now"|date("m/d/Y")})}}
+                <span class="help-inline">{{ form_errors(form.enddate) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.time, 'Volunteering Hours',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {% for child in form.time %}
+                    <label>
+                        {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+                        {{ child.vars.label|trans({}) }}
+                    </label>
+                {% endfor %}
+                <span class="help-inline">{{ form_errors(form.enddate) }}</span>
+            </div>
+        </div>
+        
+                    {{form_widget(form._token, {'type':'hidden'})}}
+               
+       
+        
+        <div class="control-group primary">
+                    
+
+            <div class="controls">
+                    {{form_widget(form.submit,{'attr':{'class':'btn btn-success span3'}})}}
+       
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+        
+
+        
+
+
+    </div>
+
+</div>
+{% endblock %}

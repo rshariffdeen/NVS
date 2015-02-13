@@ -1,0 +1,133 @@
+{% extends 'RidwanUserBundle:Welcome:index2.html.twig' %}
+
+{% block content %}
+<div id="content" class="span10">
+
+    <div class="row-fluid">
+    <br><br>
+    <div>
+            <h1 style="color: white">Employment Details</h1>
+    </div>
+    <br><br>
+    <div class="pull-right">
+        <a><button class="btn-new btn btn-round btn-success"><i class="icon-plus"></i> Add work details </button></a>
+        <a><button class="btn-continue btn btn-round btn-warning"> Continue <i class="icon-arrow-right"></i> </button></a>
+    </div>
+    <div class="box span12">
+
+    <div class="box-content">
+
+
+    <table class="table table-striped table-bordered bootstrap-datatable " width="100%">
+        <thead >
+        <tr>
+            <th width="40%">Organization</th>
+            <th width="20%">Type</th>
+            <th width="30%">Occupation</th>
+            <th width="10%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in history %}
+            <tr>
+                <td width="40%">{{ entity.organization }}</td>
+                <td width="20%">{{ entity.organizationtype }}</td>
+                <td width="30%">{{ entity.occupation }}</td>
+                <td width="10%">
+                    <ul>
+                        <li>
+                            <a href="{{ path('ridwan_education_delete', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ridwan_education_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+        </div>
+    </div>
+    </div>
+
+</div>
+    </div>
+
+    <div class="modal hide fade" id="new">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Add Employment</h3>
+        </div>
+        <div class="modal-body">
+            <p >Please fill the following details
+            </p>
+
+            {{ form_start(form) }}
+
+            <div class="control-group primary">
+                {{form_label(form.organization, 'Organization Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.organization,{'attr':{'placeholder':'United Nations Volunteers'}})}}
+                    <span class="help-inline">{{ form_errors(form.organization) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form.organizationtype, 'Type',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.organizationtype,{'attr':{'placeholder':'Government'}})}}
+                    <span class="help-inline">{{ form_errors(form.organizationtype) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form.occupation, 'occupation',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.occupation,{'attr':{'placeholder':'Secretary / CEO'}})}}
+                    <span class="help-inline">{{ form_errors(form.occupation) }}</span>
+                </div>
+            </div>
+         
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+                <input name="id" id="del-id" type="hidden" value="empty" />
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <input type="submit" class="btn btn-primary" value="continue">
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+    <div class="modal hide fade" id="continue">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Are you sure?</h3>
+        </div>
+        <div class="modal-body">
+            {% if history == null %}
+            <p align="center">You have not added any information regarding your employment history<br>Are you sure you want to skip?
+            </p>
+
+            {% else %}
+                <p align="center">Have you completed your employment details?
+                </p>
+            {% endif %}
+
+        </div>
+        <div class="modal-footer">
+            <input name="id" id="del-id" type="hidden" value="empty" />
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+            <a href="{{ path('ridwan_user_volunteer_skills') }}"> <input class="btn btn-primary" value="continue"></a>
+
+        </div>
+    </div>
+{% endblock %}
+

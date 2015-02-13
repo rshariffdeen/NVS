@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Skills</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Skills</th>
+                <td>{{ entity.skills }}</td>
+            </tr>
+            <tr>
+                <th>Causes</th>
+                <td>{{ entity.causes }}</td>
+            </tr>
+            <tr>
+                <th>Other</th>
+                <td>{{ entity.other }}</td>
+            </tr>
+            <tr>
+                <th>Languages</th>
+                <td>{{ entity.languages }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('skills') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('skills_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

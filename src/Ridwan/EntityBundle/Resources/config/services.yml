@@ -1,0 +1,15 @@
+parameters:
+#    ridwan_user.example.class: Ridwan\UserBundle\Example
+
+services:
+ ridwan_auth.registration.form.type:
+        class: Ridwan\EntityBundle\Form\AuthenticationType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: ridwan_entitybundle_authentication }
+
+ ridwan_auth.form.handler.registration:
+        class: Ridwan\EntityBundle\Handler\RegistrationHandler
+        arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator"]
+        scope: request
+        public: false

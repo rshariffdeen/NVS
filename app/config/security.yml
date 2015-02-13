@@ -1,0 +1,39 @@
+# app/config/security.yml
+security:
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                login_path: fos_user_security_login
+                target_path_parameter: ridwan_site_home
+                default_target_path: ridwan_site_home
+
+            logout:
+                path: /logout
+                target: /login
+            anonymous:    true
+            remember_me:
+                        key:      "%secret%"
+                        lifetime: 31536000 # 365 days in seconds
+                        path:     /
+                        domain:   ~ # Defaults to the current domain from $_SERVER
+
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN

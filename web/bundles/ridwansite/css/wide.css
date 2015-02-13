@@ -1,0 +1,120 @@
+/*Reset Rules
+ 
+        
+ #Lists
+================================================== 
+
+*/	ul, ol { margin: 0 !important; }
+	ul { list-style: none outside; }
+	ol { list-style: decimal; }
+	ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+	ul.square { list-style: square outside; }
+	ul.circle { list-style: circle outside; }
+	ul.disc { list-style: disc outside; }
+	ul ul, ul ol,
+	ol ol, ol ul {}
+	ul ul li, ul ol li,
+	ol ol li, ol ul li {}
+	li { line-height: 18px; }
+	ul.large li { line-height: 21px; }
+	li p { line-height: 21px; }
+        ol, ul {
+		list-style: none; }/*
+
+Reset Rules End*/
+
+
+/* =================================================================== */
+/* Wide Layout
+====================================================================== */
+
+body {
+    background: url(../images/bg/noise.png);
+    font-size: 12px;
+    font-family: 'Carrois Gothic', sans-serif !important;
+    color: #666;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+}
+
+
+
+.thumbnail{border: none !important;}
+
+h3, h2 ,h1 ,h4{
+
+    font-weight: normal !important;
+
+}
+
+#wrapper {
+    background: #fff;
+    -webkit-box-shadow:  0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:  0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px 35px 35px 35px;
+
+}
+
+#footer {
+    background: #333;
+    padding: 15px 35px 0px 35px;
+}
+
+
+/* Smaller than standard 1029 (devices and browsers)
+====================================================================== */
+@media only screen and (max-width: 1029px) {
+
+    #wrapper {
+        padding: 25px 10px 30px 10px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+    }
+
+    body {
+        background: #fff
+    }
+
+
+
+}
+
+/* Tablet Portrait (devices and browsers)
+====================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+    #footer{ width: 100%; margin: 0 auto;}
+
+}
+
+/* All Mobile Sizes (devices and browser)
+====================================================================== */
+@media only screen and (max-width: 767px) {
+
+    #wrapper {
+        margin: 0 auto;
+        padding: 15px 0 30px 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+    }
+
+    body {
+        background: #fff
+    }
+
+    #footer{
+
+        margin-left: -20px;
+        margin-right: -20px;
+
+    }
+    .featuresbox{margin-bottom: 4px;}
+
+    .nav-shadow {
+
+        bottom: -12px !important;}
+}
+

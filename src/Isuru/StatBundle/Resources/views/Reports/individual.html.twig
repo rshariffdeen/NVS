@@ -1,0 +1,83 @@
+{% extends '::base.html.twig' %}
+
+{%block stylesheets%}
+<style>
+        #panel{
+            margin-top: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+{%endblock%}
+
+{%block content%}
+
+    <div id="panel" class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Individual Volunteer</h2>
+        </div>
+        <div class="panel-body">
+    {%for key in list%}
+        {%if key==1%}
+                <p>Name             : {{personal.firstname}} {{personal.lastname}}</p>
+                <p>Gender           : {{personal.gender}}</p>
+                <p>Date of Birth    : {{personal.dateofbirth}}</p>
+                <p>Nationality      : {{personal.nationality}}</p>
+                <p>Civil Status     : {{personal.civilstatus}}</p>
+          {%endif%}
+                
+          {%if key==2%}
+                {%if contact.mobile!=null%}
+                    <p>Mobile           : {{contact.mobile}}</p>
+                {%endif%}
+                {%if contact.email!=null%}
+                <p>Email            : {{contact.email}}</p>
+                {%endif%}
+                {%if contact.fax!=null%}
+                <p>Fax              : {{contact.fax}}</p>
+                {%endif%}
+                {%if contact.phone!=null%}
+                <p>Landline         : {{contact.phone}}</p>
+                {%endif%}
+                {%if contact.streetnumber!=null%}
+                <p>Address          : {{contact.streetnumber}}, {{contact.street}}, {{contact.city}}</p>
+                {%else%}
+                <p>Address          : {{contact.street}}, {{contact.city}}</p>
+                {%endif%}
+          {%endif%}
+                
+                {%if key==3%}
+                    {%if profile.intro!=null%}
+                <p>Introduction     : {{contact.intro}}</p>
+                {%endif%}
+                {%if profile.experience!=null%}
+                <p>Experience       : {{contact.experience}}</p>
+                {%endif%}
+                {%if profile.health!=null%}
+                <p>Health           : {{contact.health}}</p>
+                {%endif%}
+                {%if profile.aggregatedrating!=null%}
+                <p>Aggregated Rating: {{contact.aggregatedrating}}</p>
+                {%endif%}
+                {%endif%}
+                
+                {%if key==4%}
+                
+                {%endif%}
+                
+                {%if key==5%}
+                
+                {%endif%}
+                
+                {%if key==6%}
+                
+                {%endif%}
+                
+                {%if key==7%}
+                
+                {%endif%}
+    {%endfor%}
+            </div>
+        </div>   
+
+{%endblock%}

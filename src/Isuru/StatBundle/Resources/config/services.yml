@@ -1,0 +1,7 @@
+parameters:
+#    isuru_stat.example.class: Isuru\StatBundle\Example
+
+services:
+#    isuru_stat.example:
+#        class: %isuru_stat.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

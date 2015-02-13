@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+{% block dashboard %}
+{% endblock %}
+{% block content %}
+<div id="content" class="span10">
+
+    <div class="row-fluid" style="margin-left: 10%">
+        <br>
+
+        <h1>Skills</h1><hr>
+
+        <br><br>
+
+       {{ form_start(form) }}
+        <h4>Select your proficient languages</h4>
+
+        <br>
+        {% for child in form.languages %}
+
+            <label>
+                {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+                {{ child.vars.label|trans({}) }}
+            </label>
+        {% endfor %}
+
+            <br><br>
+
+            <h4>Select your interested causes</h4>
+        <br>
+        {% for child in form.causes %}
+
+            <label>
+                {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+                {{ child.vars.label|trans({}) }}
+            </label>
+        {% endfor %}
+
+        <br><br>
+
+            <h4>Select your Most Interested Field</h4>
+
+        {{ form_widget(form.primary) }}
+
+            <br><br>
+
+            <h4>Select another Interested Field</h4>
+
+            {{ form_widget(form.secondary) }}
+        <br><br>
+
+            <input class='btn btn-success btn-small span2' type="submit" value = 'Submit'>
+
+        {{ form_end(form) }}
+        <br>
+        </div>
+    </div>
+
+{% endblock %}

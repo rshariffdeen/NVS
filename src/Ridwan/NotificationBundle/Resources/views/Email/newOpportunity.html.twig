@@ -1,0 +1,33 @@
+{% block subject %}
+{% autoescape false %}
+New Opportunity
+{% endautoescape %}
+{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}
+
+          
+<p align="center">
+	 <img src="http://www.vsrilanka.lk/volma/web/bundles/ridwansite/images/Logo.jpg" width="200">	
+         <hr>
+</p>
+<p align="center" style="font-size:16px"> 
+            <span style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:18px; color:#478730;" >National Volunteer Hub |</span><span style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:20px; color:red;" > Sri Lanka</span>     <br><br><br>
+           Hi, <strong>{{user.username}}!<strong><br><br>
+           You have a new Opportunity to Volunteer <br><br><br>
+            <a href="{{Url}}" style="background-color:#448ccb;border-radius:4px;color:#ffffff;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px" target="_blank">Info</a>       
+           <br><br>
+      
+ 
+</p>
+
+<p align="center" style="font-size: 11px">
+Copyright 2015 National Volunteering Secretariat, Sri Lanka. All rights reserved
+</p>
+
+
+{% endblock %}

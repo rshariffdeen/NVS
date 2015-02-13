@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Volunteercontactdetails list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Mobile</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Streetnumber</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Divisionalsecretary</th>
+                <th>District</th>
+                <th>Country</th>
+                <th>Province</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('volunteercontactdetails_show', { 'id': entity.id }) }}">{{ entity.mobile }}</a></td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.fax }}</td>
+                <td>{{ entity.streetnumber }}</td>
+                <td>{{ entity.street }}</td>
+                <td>{{ entity.city }}</td>
+                <td>{{ entity.divisionalsecretary }}</td>
+                <td>{{ entity.district }}</td>
+                <td>{{ entity.country }}</td>
+                <td>{{ entity.province }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('volunteercontactdetails_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('volunteercontactdetails_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('volunteercontactdetails_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

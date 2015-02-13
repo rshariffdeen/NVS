@@ -1,0 +1,203 @@
+{% block pageInfo %}
+<!DOCTYPE html>
+{% endblock %}
+<html>
+<head>
+
+    <!------------------Meta Data ------------------------->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volunteer Management System for National Volunteer Secretariat">
+    <meta name="author" content="Ridwan Shariffdeen">
+
+    <title>{% block title %}National Volunteer Hub{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <!-------------------------StyleSheets------------------->
+    <link id="bs-css" href={{asset('bundles/ridwansite/css/bootstrap-slate.css')}} rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+    </style>
+    <link href={{asset('bundles/ridwansite/css/bootstrap-responsive.css')}} rel="stylesheet">
+    <link href={{asset('bundles/ridwansite/css/charisma-app.css')}} rel="stylesheet">
+    <link href={{asset('bundles/ridwansite/css/jquery-ui-1.8.21.custom.css')}} rel="stylesheet">
+    <link href={{asset('bundles/ridwansite/css/fullcalendar.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/fullcalendar.print.css' )}} rel='stylesheet'  media='print'>
+    <link href={{asset('bundles/ridwansite/css/chosen.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/uniform.default.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/colorbox.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/jquery.cleditor.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/jquery.noty.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/noty_theme_default.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/elfinder.min.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/elfinder.theme.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/jquery.iphone.toggle.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/opa-icons.css')}} rel='stylesheet'>
+    <link href={{asset('bundles/ridwansite/css/uploadify.css')}} rel='stylesheet'>
+
+    <!--Additional Styles Sheets for extending pages-->
+    {% block stylesheets %}
+    {% endblock %}
+
+</head>
+<body>
+
+<!---------------Content --------------------------------->
+<!-- messages -->
+
+{% if type is defined %}
+{% if type == 'E' %}
+    <script type="text/javascript">
+        window.onload = function() {
+            noty(jQuery.parseJSON('{"text":"{{message}}","layout":"top","type":"error"}'));
+
+        }
+    </script>
+{% endif %}
+
+{% if type == 'S' %}
+    <script type="text/javascript">
+        window.onload = function() {
+            noty(jQuery.parseJSON('{"text":"{{message}}","layout":"top","type":"success"}'));
+
+        }
+    </script>
+{% endif %}
+{% endif %}
+
+<!-- topbar starts -->
+
+<!-- left menu ends -->
+
+<div class="container-fluid">
+    <div class="row-fluid">
+
+
+        <noscript>
+            <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+            </div>
+        </noscript>
+
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="modal hide fade" id="comment">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Confirm</h3>
+            </div>
+            <div class="modal-body">
+                <p align="center">Are you sure you want to delete this Notification?
+                </p>
+
+
+            </div>
+            <div class="modal-footer">
+
+                <form action="empty" id = "continue-form" method="POST">
+                    <input name="id" id="del-id" type="hidden" value="empty" />
+                    <a href="#" class="btn" data-dismiss="modal">Close</a>
+                    <input type="submit" class="btn btn-primary" value="continue">
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% block delete %}
+{% endblock %}
+
+<hr>
+<footer>
+    <p class="center"><strong>National Volunteering Secretariat, Sri Lanka</strong>&copy; 2014
+</footer>
+
+</div>
+
+<!------------------------JavaScripts --------------------------------!>
+   <!-- jQuery -->
+<script src={{asset('bundles/ridwansite/js/jquery-1.7.2.min.js')}}></script>
+<!-- jQuery UI -->
+<script src={{asset('bundles/ridwansite/js/jquery-ui-1.8.21.custom.min.js')}}></script>
+<!-- transition / effect library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-transition.js')}}></script>
+<!-- alert enhancer library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-alert.js')}}></script>
+<!-- modal / dialog library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-modal.js')}}></script>
+<!-- custom dropdown library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-dropdown.js')}}></script>
+<!-- scrolspy library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-scrollspy.js')}}></script>
+<!-- library for creating tabs -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-tab.js')}}></script>
+<!-- library for advanced tooltip -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-tooltip.js')}}></script>
+<!-- popover effect library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-popover.js')}}></script>
+<!-- button enhancer library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-button.js')}}></script>
+<!-- accordion library (optional, not used in demo) -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-collapse.js')}}></script>
+<!-- carousel slideshow library (optional, not used in demo) -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-carousel.js')}}></script>
+<!-- autocomplete library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-typeahead.js')}}></script>
+<!-- tour library -->
+<script src={{asset('bundles/ridwansite/js/bootstrap-tour.js')}}></script>
+<!-- library for cookie management -->
+<script src={{asset('bundles/ridwansite/js/jquery.cookie.js')}}></script>
+<!-- calander plugin -->
+<script src={{asset('bundles/ridwansite/js/fullcalendar.min.js')}}></script>
+<!-- data table plugin -->
+<script src={{asset('bundles/ridwansite/js/jquery.dataTables.min.js')}}></script>
+
+<!-- chart libraries start -->
+<script src={{asset('bundles/ridwansite/js/excanvas.js')}}></script>
+<script src={{asset('bundles/ridwansite/js/jquery.flot.min.js')}}></script>
+<script src={{asset('bundles/ridwansite/js/jquery.flot.pie.min.js')}}></script>
+<script src={{asset('bundles/ridwansite/js/jquery.flot.stack.js')}}></script>
+<script src={{asset('bundles/ridwansite/js/jquery.flot.resize.min.js')}}></script>
+<!-- chart libraries end -->
+
+<!-- select or dropdown enhancer -->
+<script src={{asset('bundles/ridwansite/js/jquery.chosen.min.js')}}></script>
+<!-- checkbox, radio, and file input styler -->
+<script src={{asset('bundles/ridwansite/js/jquery.uniform.min.js')}}></script>
+<!-- plugin for gallery image view -->
+<script src={{asset('bundles/ridwansite/js/jquery.colorbox.min.js')}}></script>
+<!-- rich text editor library -->
+<script src={{asset('bundles/ridwansite/js/jquery.cleditor.min.js')}}></script>
+<!-- notification plugin -->
+<script src={{asset('bundles/ridwansite/js/jquery.noty.js')}}></script>
+<!-- file manager library -->
+<script src={{asset('bundles/ridwansite/js/jquery.elfinder.min.js')}}></script>
+<!-- star rating plugin -->
+<script src={{asset('bundles/ridwansite/js/jquery.raty.min.js')}}></script>
+<!-- for iOS style toggle switch -->
+<script src={{asset('bundles/ridwansite/js/jquery.iphone.toggle.js')}}></script>
+<!-- autogrowing textarea plugin -->
+<script src={{asset('bundles/ridwansite/js/jquery.autogrow-textarea.js')}}></script>
+<!-- multiple file upload plugin -->
+<script src={{asset('bundles/ridwansite/js/jquery.uploadify-3.1.min.js')}}></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src={{asset('bundles/ridwansite/js/jquery.history.js')}}></script>
+<!-- application script for Charisma demo -->
+<script src={{asset('bundles/ridwansite/js/charisma.js')}}></script>
+
+<!--Additional Java Scripts for extending pages-->
+{% block javascripts %}
+
+{% endblock %}
+</body>
+</html>

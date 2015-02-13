@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Volunteerpersonal list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Preferredname</th>
+                <th>Fullname</th>
+                <th>Nicorpassport</th>
+                <th>Gender</th>
+                <th>Dateofbirth</th>
+                <th>Nationality</th>
+                <th>Category</th>
+                <th>Civilstatus</th>
+                <th>Status</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('volunteerpersonal_show', { 'id': entity.id }) }}">{{ entity.preferredname }}</a></td>
+                <td>{{ entity.fullname }}</td>
+                <td>{{ entity.nicorpassport }}</td>
+                <td>{{ entity.gender }}</td>
+                <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.nationality }}</td>
+                <td>{{ entity.category }}</td>
+                <td>{{ entity.civilstatus }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('volunteerpersonal_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('volunteerpersonal_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('volunteerpersonal_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

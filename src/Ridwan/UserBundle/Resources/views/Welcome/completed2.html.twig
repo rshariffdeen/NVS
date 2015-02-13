@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Let's Volunteer Register</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwansite/css/normalize.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwansite/css/demo.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwansite/css/component.css') }}"/>
+    <script src="{{ asset('bundles/ridwansite/js/modernizr.custom.js') }}"></script>
+
+</head>
+<body>
+<div class="container">
+    <header class="codrops-header">
+        <img class="center" src="{{ asset('bundles/ridwansite/images/Logo.jpg') }} " width="250px"/>
+
+    </header>
+
+    <h3 align="center" style="color: #000000">Greetings {{ app.user.username }}!</h3>
+    <h4 align="center" >Your profile is complete</h4>
+
+
+    <p align="center">Note: Your account will be ready to use once the NVS validates your information</p>
+    <br>
+</div>
+<script src="{{ asset('bundles/ridwansite/js/classie.js') }}"></script>
+<script src="{{ asset('bundles/ridwansite/js/stepsForm.js') }}"></script>
+<script>
+    var theForm = document.getElementById( 'theForm' );
+
+    new stepsForm( theForm, {
+        onSubmit : function( form ) {
+            // hide form
+            classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+            /*
+
+             or
+             AJAX request (maybe show loading indicator while we don't have an answer..)
+             */
+
+            // let's just simulate something...
+            var messageEl = theForm.querySelector( '.final-message' );
+            messageEl.innerHTML = 'Thank you! Check email for instructions.';
+            classie.addClass( messageEl, 'show' );
+            form.submit();
+        }
+    } );
+</script>
+<br>
+<hr>
+<footer>
+    <p align="center"><strong>National Volunteering Secretariat, Sri Lanka </strong>&copy; 2014
+</footer>
+</body>
+</html>
+
+
+
+
+
+

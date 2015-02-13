@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\RefereeAndUser" table="Referee_User">
+    <indexes>
+        <index name="IDX_997F1D6D8D93D649" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    
+    <field name="token" type="text" column="token" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="false"/>
+
+      <many-to-one field="referee" target-entity="Referees">
+      <join-columns>
+        <join-column name="referee" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="Authentication">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,89 @@
+ridwan_profile_photo:
+    pattern:  /profile/photo
+    defaults: { _controller: RidwanUserBundle:Profile:photo }
+
+ridwan_profile_edit:
+    pattern:  /editprofile
+    defaults: { _controller: RidwanUserBundle:Profile:edit }  
+    
+ridwan_profile_picture:
+    pattern:  /profilepicture
+    defaults: { _controller: RidwanUserBundle:Profile:picture }
+
+ridwan_user_volunteer_welcome:
+    pattern: /volunteer/welcome
+    defaults: {_controller: RidwanUserBundle:Volunteer:welcome}
+
+ridwan_user_volunteer_education:
+    pattern: /welcome/education
+    defaults: {_controller: RidwanUserBundle:Volunteer:education}
+
+ridwan_user_volunteer_employment:
+    pattern: /welcome/employment
+    defaults: {_controller: RidwanUserBundle:Volunteer:employment}
+
+ridwan_user_volunteer_personal:
+    pattern: /welcome/personal
+    defaults: {_controller: RidwanUserBundle:Volunteer:personal}
+
+ridwan_user_volunteer_skills:
+    pattern: /welcome/skills
+    defaults: {_controller: RidwanUserBundle:Volunteer:skills}
+
+ridwan_user_volunteer_contacts:
+    pattern: /welcome/contacts
+    defaults: {_controller: RidwanUserBundle:Volunteer:contact}
+
+ridwan_user_volunteer_referees:
+    pattern: /welcome/referees
+    defaults: {_controller: RidwanUserBundle:Volunteer:referees}
+
+ridwan_organization_welcome:
+    pattern: /organization/welcome
+    defaults: {_controller: RidwanUserBundle:Organization:welcome}
+
+ridwan_organization_details:
+    pattern: /organization/details
+    defaults: {_controller: RidwanUserBundle:Organization:details}
+
+ridwan_organization_contact:
+    pattern: /organization/contact
+    defaults: {_controller: RidwanUserBundle:Organization:contact}
+
+ridwan_profile_volunteer:
+    pattern: /profile/volunteer/{userID}
+    defaults: {_controller: RidwanUserBundle:Profile:volunteer}
+
+ridwan_profile_organization:
+    pattern: /profile/organization/{userID}
+    defaults: {_controller: RidwanUserBundle:Profile:organization}
+
+ridwan_profile_referee:
+    pattern: /profile/referee/{userID}
+    defaults: {_controller: RidwanUserBundle:Profile:referee}
+
+ridwan_admin_users:
+    pattern: /admin/users
+    defaults: {_controller: RidwanUserBundle:User:index}
+    
+ridwan_referee_approve:
+    pattern: /referee/approve/{userId}/{token}/{refereeId}
+    defaults: {_controller: RidwanUserBundle:Referee:approveVolunteer}
+    
+ridwan_referee_decline:
+    pattern: /referee/decline/{userId}/{token}/{refereeId}
+    defaults: {_controller: RidwanUserBundle:Referee:declineVolunteer}
+    
+ridwan_referee_sendMessage:
+    pattern: /referee/sendmail/dt45546rygbiug78vbuioohg56
+    defaults: {_controller: RidwanUserBundle:Referee:sendRefereeEmail}
+    
+ridwan_referee_generate:
+    pattern: /referee/generate/rtxcgvbi56rfguiv
+    defaults: {_controller: RidwanUserBundle:Referee:generate}
+    
+ridwan_volunteer_completeEmailSend:
+    pattern: /volunteer/sendRegistrationCompleteEmail/esdfyuih76d56fyubin
+    defaults: {_controller: RidwanUserBundle:Volunteer:sendRegistrationCompleteEmail}
+    
+    

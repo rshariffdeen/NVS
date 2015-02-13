@@ -1,0 +1,64 @@
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="wrapper span12">
+                <br>
+                <img class="center" src="{{ asset('bundles/ridwansite/images/Logo.jpg') }} " width="250px"/>
+
+                <div class="well span3 login-box center ">
+                    <div class="content">
+                        <div id="form_wrapper" class="form_wrapper span12">
+
+                            {% if error is defined  %}
+                                {% if error !=""  %}
+                                <script type="text/javascript">
+                                    window.onload = function() {
+                                        noty(jQuery.parseJSON('{"text":"{{ error|trans({}, 'FOSUserBundle') }}","layout":"top","type":"error"}'));
+
+                                    }
+                                </script>
+
+                            {% endif %}
+                            {% endif %}
+                            
+                            <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class = "login active form-horizontal center">
+                            {{form_label(form.new.first, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+                            <div class="input-prepend " title="Username" data-rel="tooltip">
+                                      <span class="add-on"><i class="icon-lock"></i></span> 
+    			     {{ form_widget(form.new.first,{'attr':{'placeholder':'type your new password'}}) }}
+                                </div>
+                                {{form_label(form.new.second, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+                                  <div class="input-prepend " title="Username" data-rel="tooltip">
+                                      <span class="add-on"><i class="icon-lock"></i></span> 
+    			     {{ form_widget(form.new.second,{'attr':{'placeholder':'confirm new password'}}) }}
+                                </div>
+                                <div class="clearfix"></div>                                
+                           
+    			    
+    {{ form_widget(form) }}
+    <div>
+        <input class = "btn btn-success span5"type="submit" value="Submit" />
+    </div>
+</form>
+
+                           
+
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+            <!--/span-->
+
+        </div>
+        <!--/row-->
+
+    </div><!--/fluid-row-->
+
+    </div><!--/.fluid-container-->
+
+{% endblock %}

@@ -1,0 +1,29 @@
+ridwan_project_index:
+    pattern:  /projects
+    defaults: { _controller: RidwanProjectBundle:Project:index }
+    
+ridwan_project_details:
+    pattern:  /projectdetails/{projectID}
+    defaults: { _controller: RidwanProjectBundle:Project:details }
+    
+ridwan_project_new:
+    pattern:  /newProject
+    defaults: { _controller: RidwanProjectBundle:Project:newProject} 
+    
+ridwan_project_edit:
+    pattern:  /editProject/{projectID}
+    defaults: { _controller: RidwanProjectBundle:Project:editProject } 
+    
+ridwan_project_delete:
+    pattern:  /deleteProject/{projectID}
+    defaults: { _controller: RidwanProjectBundle:Project:deleteProject } 
+    methods: POST
+    
+ridwan_project_complete:
+    pattern:  /completeProject/{projectID}
+    defaults: { _controller: RidwanProjectBundle:Project:complete }
+    
+ridwan_project_details_notification:
+    pattern:  /projectdetails/{projectID}/{notificationID}
+    defaults: { _controller: RidwanProjectBundle:Project:notification }
+    

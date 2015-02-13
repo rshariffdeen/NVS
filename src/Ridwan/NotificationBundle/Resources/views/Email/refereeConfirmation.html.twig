@@ -1,0 +1,75 @@
+{% block subject %}
+{% autoescape false %}
+Volunteer Recommendation
+{% endautoescape %}
+{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}
+
+          
+<p align="center">
+	 <img src="http://www.vsrilanka.lk/volma/web/bundles/ridwansite/images/Logo.jpg" width="200">	
+         <hr>
+</p>
+<p align="center" style="font-size:16px"> 
+            <span style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:18px; color:#478730;" >National Volunteer Hub |</span><span style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:20px; color:red;" > Sri Lanka</span>     <br><br><br>
+            </p>
+           <p align="left" style="font-size:16px"> 
+           Hi {{referee.name}},<br>
+           You have been included as a referee by <strong> {{volunteer.firstname}} {{volunteer.lastname}} </strong> to register as a volunteer at the National Volunteering Secretariat, please be kind enough to inform your recommendation. 
+           
+           
+           <br><br><strong>Volunteer Personal Details</strong><br>
+           Email: {{user.email}}
+           <br><br><strong>Education Details</strong><br> 
+           {% if  education == null %}
+                Information not Provided
+           {% else %}          
+            {% for entity in education %}
+                Institution: {{ entity.institution }} <br>
+                Degree: {{ entity.degree }} <br>
+                Field: {{ entity.field }} <br>
+                Duration: {{ entity.duration }} <br>
+                
+                <br><br>
+            {% endfor %}
+            
+            {% endif %}
+            
+            <br><br><strong>Employment Details</strong><br>    
+            
+            {% if employment == null %}
+            Information not Provided
+           {% else %}   
+            
+                  
+             {% for entity in employment %}
+                Organization Name: {{ entity.organization }} <br>
+                Organization Type: {{ entity.organizationtype }} <br>
+                Occupation: {{ entity.occupation }}<br>
+                <br><br>
+            {% endfor %}
+            {% endif %}
+          <br><br>
+          </p><p align="center" style="font-size:16px"> 
+           
+           <a href="{{acceptUrl}}" style="background-color:green;border-radius:4px;color:#ffffff;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px" target="_blank">Approve</a>
+           
+           <a href="{{declineUrl}}" style="background-color:red;border-radius:4px;color:#ffffff;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px" target="_blank">Decline</a>
+           
+
+          
+        
+ 
+</p>
+
+<p align="center" style="font-size: 11px">
+Copyright 2015 National Volunteering Secretariat, Sri Lanka. All rights reserved
+</p>
+
+
+{% endblock %}

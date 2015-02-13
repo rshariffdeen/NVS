@@ -1,0 +1,32 @@
+{% block subject %}
+{% autoescape false %}
+Registration Complete
+{% endautoescape %}
+{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}
+
+          
+<p align="center">
+	 <img src="http://www.vsrilanka.lk/volma/web/bundles/ridwansite/images/Logo.jpg" width="200">	
+         <hr>
+</p>
+<p align="center" style="font-size:16px"> 
+            <span style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:18px; color:#478730;" >National Volunteer Hub |</span><span style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:20px; color:red;" > Sri Lanka</span>     <br><br><br>
+            </p>
+           <p align="left" style="font-size:16px"> 
+           Hi, {{user.username}}!<br>
+           Welcome to the National Volunteering Hub, Sri Lanka and thank you for registering with us. Please note that your registration is successfully completed and we will respond within 7 working days subject to the receipt of the recommendation from the two referees. <br><br><br>
+ 
+</p>
+
+<p align="center" style="font-size: 11px">
+Copyright 2015 National Volunteering Secretariat, Sri Lanka. All rights reserved
+</p>
+
+
+{% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+#    ridwan_notification.example.class: Ridwan\NotificationBundle\Example
+
+services:
+#    ridwan_notification.example:
+#        class: %ridwan_notification.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

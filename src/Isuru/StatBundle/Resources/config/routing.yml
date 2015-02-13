@@ -1,0 +1,22 @@
+isuru_stat_homepage:
+    path:     /statistics
+    defaults: { _controller: IsuruStatBundle:Default:index }
+isuru_stat_individual:
+    path:     /statistics/individual
+    defaults: { _controller: IsuruStatBundle:IndividualReport:index }
+isuru_stat_overall:
+    path:     /statistics/overall
+    defaults: { _controller: IsuruStatBundle:OverallReport:index }
+isuru_stat_district:
+    path:     /statistics/district
+    defaults: { _controller: IsuruStatBundle:DistrictReport:index }
+isuru_stat_profession:
+    path:     /statistics/profession
+    defaults: { _controller: IsuruStatBundle:ProfessionReport:index }
+isuru_stat_monthly:
+    path:     /statistics/monthly
+    defaults: { _controller: IsuruStatBundle:MonthlyReport:index }
+isuru_stat_gender:
+    path:     /statistics/gender
+    defaults: { _controller: IsuruStatBundle:GenderReport:index }
+    

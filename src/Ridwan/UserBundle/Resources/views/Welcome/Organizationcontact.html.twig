@@ -1,0 +1,126 @@
+{% extends '::base.html.twig' %}
+{% block dashboard %}
+{% endblock %}
+{% block content %}
+<br>
+<div id="content" class="span10">
+    <div class="row-fluid">
+        <h1>Contact Information</h1>
+        <hr>
+
+
+        <br><br>
+        {{ form_start(form,{'attr':{'id':'myform','class':'form-horizontal center','autocomplete':'off'}}) }}
+        <div class="control-group primary">
+            {{form_label(form.website, 'Website URL',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.website)}}
+                <span class="help-inline">{{ form_errors(form.website) }}</span>
+            </div>
+
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.email, 'Public email',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.email)}}
+                <span class="help-inline">{{ form_errors(form.email) }}</span>
+            </div>
+
+        </div>
+
+
+        <div class="control-group primary">
+            {{form_label(form.phone, 'Landline',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.phone)}}
+                <span class="help-inline">{{ form_errors(form.phone) }}</span>
+            </div>
+
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.fax, 'Fax Number',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.fax)}}
+                <span class="help-inline">{{ form_errors(form.fax) }}</span>
+            </div>
+
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.streetnumber, 'Street Number',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.streetnumber)}}
+                <span class="help-inline">{{ form_errors(form.streetnumber) }}</span>
+            </div>
+
+        </div>
+
+
+        <div class="control-group primary">
+            {{form_label(form.street, 'Street',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.street)}}
+                <span class="help-inline">{{ form_errors(form.street) }}</span>
+            </div>
+
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.city, 'City ',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.city)}}
+                <span class="help-inline">{{ form_errors(form.city) }}</span>
+            </div>
+
+        </div>
+
+
+        <div class="control-group primary">
+            {{form_label(form.divisionalsecretary, 'Divisional Secretary',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.divisionalsecretary)}}
+                <span class="help-inline">{{ form_errors(form.divisionalsecretary) }}</span>
+            </div>
+
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.country, 'Country',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.country)}}
+                <span class="help-inline">{{ form_errors(form.country) }}</span>
+            </div>
+
+        </div>
+
+
+
+
+        {{ form_widget(form._token) }}
+        <div class="control-group primary">
+            {{form_label(form.country, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                <button class="btn btn-success" type="submit">Submit</button>
+                <span class="help-inline">{{ form_errors(form.country) }}</span>
+            </div>
+
+        </div>
+
+        </form><!-- /fs-form -->
+
+    </div>
+
+{% endblock %}
+

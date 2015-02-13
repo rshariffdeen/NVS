@@ -1,0 +1,190 @@
+{%  extends "::base.html.twig" %}
+
+{% block content %}
+<div id="content" class="span10">
+
+
+    <div class="row-fluid">
+
+        <div class="box span12">
+            <div class="box-header well" data-original-title>
+                <h2><i class="icon-bookmark"></i> Opportunities Approval</h2>
+
+            </div>
+            <div class="box-content">
+                <div class="box-content">
+                    <ul class="dashboard-list">
+                        {% for Opportunity in opportunities %}
+                            <li>
+                                <div class ="pull-right">
+                                    {% if Opportunity.status == 0 %}
+                                        <br><br>
+                                        <button url="{{ path('ridwan_site_approve_opportunity', { 'opID': Opportunity.id }) }}" id="{{Opportunity.id}}" class="btn btn-small  btn-success btn-complete"><i class="icon-ok"></i> Approve</button>
+                                        <button url="{{ path('ridwan_site_reject_opportunity', { 'opID': Opportunity.id }) }}" id="{{Opportunity.id}}" class="btn btn-small btn-danger btn-delete"><i class="icon-remove"></i> Reject</button>
+
+                                    {% endif %}
+                                </div>
+
+                                <h6>Title</h6>
+
+                                <h3>{{ Opportunity.title }}</h3>
+                                <br>
+
+                                <h6>Volunteer Role</h6>
+
+                                <p align="justify">{{ Opportunity.role }}</p>
+                                <br>
+
+                                <h6>Description</h6>
+
+                                <p align="justify">{{ Opportunity.description }}</p>
+                                <br>
+
+                                <table width='100%'>
+                                    <tr>
+                                        <td width='40%'>
+                                            <h6>Location</h6>
+
+                                            <p align="justify">{{ Opportunity.location }}</p>
+                                            <br>
+
+                                            <h6>Start Date</h6>
+
+                                            <p align="justify">{{ Opportunity.startdate|date('Y-m-d') }}</p>
+                                            <br>
+
+                                            <h6>Expected End Date</h6>
+
+                                            <p align="justify">{{ Opportunity.enddate| date('Y-m-d') }}</p>
+                                            <br>
+
+                                            <h6>Number of Volunteers</h6>
+
+                                            <p align="justify">{{ Opportunity.numberofvolunteers }}</p>
+                                            <br>
+                                        </td>
+                                        <td width='10%'></td>
+                                        <td width='40%'>
+                                            <h6>Age Group</h6>
+
+                                            <p align="justify">{{ Opportunity.agegroup }}</p>
+                                            <br>
+
+                                            <h6>Difficulty</h6>
+
+                                            <p align="justify">
+                                                {% if Opportunity.difficulty == 8 %}
+                                            <h3><span class="label label-important"> Extreme</span></h3>
+                                            {% elseif Opportunity.difficulty == 6 %}
+                                                <h3><span class="label label-warning"> Hard</span></h3>
+
+                                            {% elseif Opportunity.difficulty == 4 %}
+                                                <h3><span class="label label-inverse"> Normal</span></h3>
+
+                                            {% elseif Opportunity.difficulty == 2 %}
+                                                <h3><span class="label label-inverse"> Easy </span></h3>
+
+                                            {% elseif Opportunity.difficulty == 0 %}
+                                                <h3><span class="label label-info"> Very Easy</span></h3>
+                                            {% endif %}
+
+
+                                            </p>
+                                            <br>
+
+                                            <h6>Cause</h6>
+
+                                            <p align="justify">{{ Opportunity.cause }}</p>
+                                            <br>
+
+                                            <h6>Status</h6>
+                                            {% if Opportunity.status == -1 %}
+                                                <h3><span class="label label-important"> Rejected</span></h3>
+                                            {% elseif Opportunity.status == 0 %}
+                                                <h3><span class="label label-warning"> Pending Approval</span></h3>
+
+                                            {% elseif Opportunity.status == 1 %}
+                                                <h3><span class="label label-inverse"> Assigning Volunteers</span></h3>
+
+                                            {% elseif Opportunity.status == 2 %}
+                                                <h3><span class="label label-inverse"> On going</span></h3>
+
+                                            {% elseif Opportunity.status == 3 %}
+                                                <h3><span class="label label-info">Completed</span></h3>
+                                            {% endif %}
+                                            <br>
+                                        </td>
+                                        <td width='10%'></td>
+                                    </tr>
+
+                                </table>
+
+
+                                <h6>Training</h6>
+
+                                <p align="justify">{{ Opportunity.training }}</p>
+                                <br>
+
+                                <h6>Expenses</h6>
+
+                                <p align="justify">{{ Opportunity.expenses }}</p>
+                                <br>
+
+
+
+                            </li>
+                        {% endfor %}
+
+
+                    </ul>
+                </div>
+            </div>
+        </div><!--/span-->
+
+ </div>
+
+    <div class="modal hide fade" id="delete">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Confirm</h3>
+        </div>
+        <div class="modal-body">
+            <p align="center">Are you sure you want to reject this opportunity?
+            </p>
+
+
+        </div>
+        <div class="modal-footer">
+
+            <form action="empty" id = "continue-form" method="POST">
+                <input name="id" id="del-id" type="hidden" value="empty" />
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <input type="submit" class="btn btn-primary" value="continue">
+            </form>
+
+        </div>
+    </div>
+
+    <div class="modal hide fade" id="complete">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Confirm</h3>
+        </div>
+        <div class="modal-body">
+            <p align="center">Are you sure you want to add this opportunity to the system?
+            </p>
+
+
+        </div>
+        <div class="modal-footer">
+
+            <form action="empty" id = "continue-form" method="POST">
+                <input name="id" id="del-id" type="hidden" value="empty" />
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <input type="submit" class="btn btn-primary" value="continue">
+            </form>
+
+        </div>
+    </div>
+        
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div id="content" class="span10">
+        <div class="row-fluid">
+            <br>
+            <h2>Personal Information</h2>
+            <hr>
+            <br>
+            {{ form_start(edit_form,{'attr':{'class':'form-horizontal center' }}) }}
+            <div class="control-group primary">
+                {{ form_label(edit_form.firstname, 'First Name',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.firstname) }}
+                    <span class="help-inline">{{ form_errors(edit_form.firstname) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.lastname, 'Last Name',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.lastname) }}
+                    <span class="help-inline">{{ form_errors(edit_form.lastname) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.category, 'Category',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.category) }}
+                    <span class="help-inline">{{ form_errors(edit_form.category) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.nationality, 'Nationality',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.nationality) }}
+                    <span class="help-inline">{{ form_errors(edit_form.nationality) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.nicorpassport, 'Identification',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.nicorpassport,{'attr':{'class':'fs-anim-lower','id':'q4','placeholder':"NIC or Passport Number" }}
+                    )}}
+                    <span class="help-inline">{{ form_errors(edit_form.nicorpassport) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.dateofbirth, 'Date of Birth',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.dateofbirth,{'value':"now"|date("m/d/Y")}) }}
+                    <span class="help-inline">{{ form_errors(edit_form.dateofbirth) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.gender, 'Sex',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.gender) }}
+                    <span class="help-inline">{{ form_errors(edit_form.gender) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{ form_label(edit_form.Civilstatus, 'Civil Status',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.Civilstatus) }}
+                    <span class="help-inline">{{ form_errors(edit_form.Civilstatus) }}</span>
+                </div>
+            </div>
+
+
+            {{ form_widget(edit_form._token) }}
+            <div class="control-group primary">
+                {{ form_label(edit_form.Civilstatus, ' ',{ 'label_attr': {'class': 'control-label'} }) }}
+
+                <div class="controls">
+                    {{ form_widget(edit_form.submit,{'attr':{'class':'btn btn-success' }}) }}
+                    <span class="help-inline">{{ form_errors(edit_form.Civilstatus) }}</span>
+                </div>
+            </div>
+
+
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+{% endblock %}

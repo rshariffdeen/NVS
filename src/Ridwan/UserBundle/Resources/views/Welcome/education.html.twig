@@ -1,0 +1,137 @@
+{% extends '::base.html.twig' %}
+{% block dashboard %}
+{% endblock %}
+
+{% block content %}
+
+    <div id="content" class="span10">
+
+    <div class="row-fluid">
+        <br>
+        <h1>Educational Qualifications</h1>
+        <hr>
+
+
+    <div class="pull-right">
+        <a><button class="btn-new btn btn-round btn-primary"><i class="icon-plus"></i> Add Qualification </button></a>
+        <a><button class="btn-continue btn btn-round btn-success"><i class="icon-arrow-right"></i> Continue  </button></a>
+    </div>
+        <br><br>
+
+
+    <div class="box-content">
+
+
+    <table class="table table-striped table-bordered bootstrap-datatable " width="100%">
+        <thead >
+        <tr>
+            <th width="30%">Institution</th>
+            <th width="20%">Degree</th>
+            <th width="30%">Field</th>
+            <th width="20%">Duration</th>           
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in qualifications %}
+            <tr>
+                <td width="30%">{{ entity.institution }}</td>
+                <td width="20%">{{ entity.degree }}</td>
+                <td width="30%">{{ entity.field }}</td>
+                <td width="20%">{{ entity.duration }}</td>
+              
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+    <div class="modal hide fade" id="new">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Add qualification</h3>
+        </div>
+        <div class="modal-body">
+            <p >Please fill the following details
+            </p>
+
+            {{ form_start(form) }}
+
+            <div class="control-group primary">
+                {{form_label(form.institution, 'Institution Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.institution)}}
+                    <span class="help-inline">{{ form_errors(form.institution) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form.degree, 'Level of Study',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.degree)}}
+                    <span class="help-inline">{{ form_errors(form.degree) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form.field, 'Field',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.field)}}
+                    <span class="help-inline">{{ form_errors(form.field) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form.duration, 'Duration',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.duration)}}
+                    <span class="help-inline">{{ form_errors(form.duration) }}</span>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+                <input name="id" id="del-id" type="hidden" value="empty" />
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <input type="submit" class="btn btn-primary" value="continue">
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+    <div class="modal hide fade" id="continue">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Are you sure?</h3>
+        </div>
+        <div class="modal-body">
+            {% if qualifications == null %}
+            <p align="center">You have not added any information regarding your educational background
+            </p>
+
+            {% else %}
+                <p align="center">Have you completed your educational qualifications?
+                </p>
+            {% endif %}
+
+        </div>
+        <div class="modal-footer">
+            <input name="id" id="del-id" type="hidden" value="empty" />
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+            {% if qualifications != null %}
+            <a href="{{ path('ridwan_user_volunteer_employment') }}"> <input class="btn btn-primary" value="continue"></a>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

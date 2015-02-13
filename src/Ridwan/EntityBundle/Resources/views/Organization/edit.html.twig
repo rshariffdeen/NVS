@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block content%}
+<div id="content" class="span10">
+    <div class="row-fluid">
+
+        <br>
+        <h2>Organization General Information</h2>
+        <hr><br>
+        {{ form_start(edit_form) }}
+        <div class="control-group primary">
+            {{form_label(edit_form.name, 'Name',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.name)}}
+                <span class="help-inline">{{ form_widget(edit_form.name) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.branch, 'Branch',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.branch)}}
+                <span class="help-inline">{{ form_widget(edit_form.branch) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.type, 'Type',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.type)}}
+                <span class="help-inline">{{ form_widget(edit_form.type) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+        {{form_label(edit_form.type, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+        <div class="controls">
+            {{form_widget(edit_form.submit,{'attr':{'class':'btn btn-success'}})}}
+            <span class="help-inline">{{ form_widget(edit_form.type) }}</span>
+        </div>
+    </div>
+        {{ form_end(edit_form) }}
+
+
+</div>
+    </div>
+
+{% endblock %}

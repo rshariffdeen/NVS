@@ -1,0 +1,50 @@
+<form id="theForm" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register simform" autocomplete="off">
+
+    <div id="fos_user_registration_form" class="simform-inner">
+        <ol class="questions">
+            <li>
+                <span><label for="q1">Who are you?</label></span>
+                {{ form_widget(form.type,{'attr':{'placeholder':"Volunteer or Organization"}}) }}
+                {{ form_errors(form.type) }}
+            </li>
+
+            <li>
+                <span><label for="q1">What is your username?</label></span>
+                {{ form_widget(form.username,{'attr':{'placeholder':"type a username you desire"}}) }}
+                {{ form_errors(form.username) }}
+            </li>
+            <li>
+                <span><label for="q2">What is your email address?</label></span>
+                {{ form_widget(form.email,{'attr':{'autocomplete':'off','placeholder':"type your email"}}) }}
+                {{ form_errors(form.email) }}
+            </li>
+            <li>
+                <span><label for="q3">Setup your password</label></span>
+                {{ form_widget(form.plainPassword.first,{'attr':{'placeholder':"password of 6 characters"}}) }}
+                {{ form_errors(form.plainPassword.first) }}
+          </li>
+            <li>
+                <span><label for="q3">Confirm your password</label></span>
+                {{ form_widget(form.plainPassword.second,{'attr':{'placeholder':"re-type your password"}}) }}
+                {{ form_errors(form.plainPassword.second) }}
+         </li>
+
+
+        </ol><!-- /questions -->
+
+
+
+        <div class="controls">
+            <button name = "next" class="next"></button>
+            <div class="progress"></div>
+							<span class="number">
+								<span class="number-current"></span>
+								<span class="number-total"></span>
+							</span>
+            <span class="error-message"></span>
+        </div><!-- / controls -->
+    </div><!-- /simform-inner -->
+    <span class="final-message"></span>
+    {{ form_widget(form) }}
+
+</form>

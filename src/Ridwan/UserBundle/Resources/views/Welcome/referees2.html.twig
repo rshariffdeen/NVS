@@ -1,0 +1,125 @@
+{% extends 'RidwanUserBundle:Welcome:index2.html.twig' %}
+
+{% block content %}
+    <div id="content" class="span10">
+
+        <div class="row-fluid">
+            <br><br>
+            <div>
+                <h1 style="color: white">Referees</h1>
+            </div>
+            <br><br>
+            <div class="pull-right">
+                <a><button class="btn-new btn btn-round btn-primary"><i class="icon-plus"></i> Add Referees</button></a>
+            </div>
+            <div class="box span12 ">
+                <div class="box-content center">
+                    <br>
+                    <table class="table table-striped table-bordered bootstrap-datatable " width="100%">
+                        <thead >
+                        <tr>
+                            <th width="30%">Name</th>
+                            <th width="10%">Phone Number</th>
+                            <th width="30%">Mobile Number</th>
+                            <th width="10%">Email</th>
+                            <th width="20%">Address</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in database %}
+                            <tr>
+                                <td width="30%">{{ entity.name }}</td>
+                                <td width="30%">{{ entity.contactnumber }}</td>
+                                <td width="10%">{{ entity.mobilenumber }}</td>
+                                <td width="10%">{{ entity.address }}</td>
+                                <td width="20%">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('ridwan_education_delete', { 'id': entity.id }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('ridwan_education_edit', { 'id': entity.id }) }}">edit</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="modal hide fade" id="new">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Add Referee</h3>
+        </div>
+        <div class="modal-body">
+            <p >Please fill the following details
+            </p>
+
+            {{ form_start(form2) }}
+
+            <div class="control-group primary">
+                {{form_label(form2.name, 'Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form2.name,{'attr':{'placeholder':'Nihal Perera'}})}}
+                    <span class="help-inline">{{ form_errors(form2.name) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form2.address, 'Address',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form2.address,{'attr':{'placeholder':'No X, Main Street, Colombo'}})}}
+                    <span class="help-inline">{{ form_errors(form2.address) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form2.email, 'Email',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form2.email,{'attr':{'placeholder':'Engineering / Mathematics'}})}}
+                    <span class="help-inline">{{ form_errors(form2.email) }}</span>
+                </div>
+            </div>
+            <div class="control-group primary">
+                {{form_label(form2.contactnumber, 'Phone',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form2.contactnumber,{'attr':{'placeholder':'0xx-xxxxxxx'}})}}
+                    <span class="help-inline">{{ form_errors(form2.contactnumber) }}</span>
+                </div>
+            </div>
+
+            <div class="control-group primary">
+                {{form_label(form2.mobilenumber, 'Phone',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form2.mobilenumber,{'attr':{'placeholder':'07x-xxxxxxx'}})}}
+                    <span class="help-inline">{{ form_errors(form2.mobilenumber) }}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <input name="id" id="del-id" type="hidden" value="empty" />
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+            <input type="submit" class="btn btn-primary" value="continue">
+            {{ form_end(form2) }}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+

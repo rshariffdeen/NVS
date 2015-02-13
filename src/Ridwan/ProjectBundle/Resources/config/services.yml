@@ -1,0 +1,7 @@
+parameters:
+#    ridwan_project.example.class: Ridwan\ProjectBundle\Example
+
+services:
+#    ridwan_project.example:
+#        class: %ridwan_project.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

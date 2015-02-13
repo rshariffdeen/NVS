@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Availability</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Days</th>
+                <td>{{ entity.days }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ entity.duration }}</td>
+            </tr>
+            <tr>
+                <th>Preferredtime</th>
+                <td>{{ entity.preferredtime }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('availability') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('availability_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+{% block dashboard %}
+{% endblock %}
+{% block content %}
+<br>
+<div id="content" class="span10">
+    <div class="row-fluid">
+        <h1>General Information</h1>
+        <hr>
+
+
+        <br><br>
+    {{ form_start(form,{'attr':{'id':'myform','class':'form-horizontal center','autocomplete':'off'}}) }}
+
+            <div class="control-group primary">
+                {{form_label(form.name, 'Organization Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.name)}}
+                    <span class="help-inline">{{ form_errors(form.name) }}</span>
+                </div>
+            </div>
+
+
+            <div class="control-group primary">
+                {{form_label(form.branch, 'Location',{ 'label_attr': {'class': 'control-label'} })}}
+
+                <div class="controls">
+                    {{form_widget(form.branch)}}
+                    <span class="help-inline">{{ form_errors(form.branch) }}</span>
+                </div>
+            </div>
+
+
+                <div class="control-group primary">
+                    {{form_label(form.type, 'Type',{ 'label_attr': {'class': 'control-label'} })}}
+
+                    <div class="controls">
+                        {{form_widget(form.type)}}
+                        <span class="help-inline">{{ form_errors(form.type) }}</span>
+                    </div>
+                </div>
+
+
+                {{ form_widget(form._token) }}
+                <div class="control-group primary">
+                    {{form_label(form.type, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+
+                    <div class="controls">
+                        <button class="btn btn-success" type="submit">Submit</button>
+                        <span class="help-inline">{{ form_errors(form.type) }}</span>
+                    </div>
+                </div>
+    </form><!-- /fs-form -->
+
+</div>
+
+{% endblock %}
+

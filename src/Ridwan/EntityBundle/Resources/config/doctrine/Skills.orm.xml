@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Skills" table="Skills">
+    <unique-constraints>
+      <unique-constraint name="user_UNIQUE" columns="user"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="primary" type="text" column="primaryRole" nullable="true"/>
+    <field name="causes" type="array" column="causes" nullable="true"/>
+    <field name="secondary" type="text" column="secondaryRole" nullable="true"/>
+    <field name="languages" type="array" column="languages" nullable="true"/>
+    <many-to-one field="user" target-entity="Authentication">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

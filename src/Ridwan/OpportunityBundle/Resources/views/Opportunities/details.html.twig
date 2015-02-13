@@ -1,0 +1,234 @@
+{% extends "::base.html.twig" %}
+
+
+{% block content %}
+<div id="content" class="span10">
+    <div class="row-fluid">
+        <div class="box span8">
+
+            <div class="box-content ">
+
+                <div id="content" class="span12">
+                    <h2>Opportunity Details</h2>
+                    <hr>
+                    {% if Opportunity.organization == organization %}
+                        <div class="pull-right">
+                            {% if Opportunity.status == 2 %}
+                                <a href=" {{ path('ridwan_opportunity_completePage', { 'opportunityID': Opportunity.id }) }}">
+                                    <button class="btn btn-small btn-success">complete</button>
+                                </a>
+                            {% endif %}
+                            <a href=" {{ path('ridwan_opportunity_edit', { 'id': Opportunity.id }) }}">
+                                <button class="btn btn-small btn-inverse">edit</button>
+                            </a>
+                            <button class="btn btn-small btn-danger btn-delete"
+                                    url="{{ path('ridwan_opportunity_delete', { 'id': Opportunity.id }) }}"
+                                    id="{{ Opportunity.id }}"> delete
+                            </button>
+
+                            <br>
+                        </div>
+                    {% endif %}
+
+                    <br>
+
+                    <div style="margin-left: 10%">
+                        <h6>Title</h6>
+
+                        <h3>{{ Opportunity.title }}</h3>
+                        <br>
+
+                        <h6>Volunteer Role</h6>
+
+                        <p align="justify">{{ Opportunity.role }}</p>
+                        <br>
+
+                        <h6>Description</h6>
+
+                        <p align="justify">{{ Opportunity.description }}</p>
+                        <br>
+
+                        <table width='100%'>
+                            <tr>
+                                <td width='40%'>
+                                    <h6>Location</h6>
+
+                                    <p align="justify">{{ Opportunity.location }}</p>
+                                    <br>
+
+                                    <h6>Start Date</h6>
+
+                                    <p align="justify">{{ Opportunity.startdate|date('Y-m-d') }}</p>
+                                    <br>
+
+                                    <h6>Expected End Date</h6>
+
+                                    <p align="justify">{{ Opportunity.enddate| date('Y-m-d') }}</p>
+                                    <br>
+
+                                    <h6>Number of Volunteers</h6>
+
+                                    <p align="justify">{{ Opportunity.numberofvolunteers }}</p>
+                                    <br>
+                                </td>
+                                <td width='10%'></td>
+                                <td width='40%'>
+                                    <h6>Age Group</h6>
+
+                                    <p align="justify">{{ Opportunity.agegroup }}</p>
+                                    <br>
+
+                                    <h6>Difficulty</h6>
+
+                                    <p align="justify">
+                                        {% if Opportunity.difficulty == 8 %}
+                                    <h3><span class="label label-important"> Extreme</span></h3>
+                                    {% elseif Opportunity.difficulty == 6 %}
+                                        <h3><span class="label label-warning"> Hard</span></h3>
+
+                                    {% elseif Opportunity.difficulty == 4 %}
+                                        <h3><span class="label label-inverse"> Normal</span></h3>
+
+                                    {% elseif Opportunity.difficulty == 2 %}
+                                        <h3><span class="label label-inverse"> Easy </span></h3>
+
+                                    {% elseif Opportunity.difficulty == 0 %}
+                                        <h3><span class="label label-info"> Very Easy</span></h3>
+                                    {% endif %}
+
+
+                                    </p>
+                                    <br>
+
+                                    <h6>Cause</h6>
+
+                                    <p align="justify">{{ Opportunity.cause }}</p>
+                                    <br>
+
+                                    <h6>Status</h6>
+                                    {% if Opportunity.status == -1 %}
+                                        <h3><span class="label label-important"> Rejected</span></h3>
+                                    {% elseif Opportunity.status == 0 %}
+                                        <h3><span class="label label-warning"> Pending Approval</span></h3>
+
+                                    {% elseif Opportunity.status == 1 %}
+                                        <h3><span class="label label-inverse"> Assigning Volunteers</span></h3>
+
+                                    {% elseif Opportunity.status == 2 %}
+                                        <h3><span class="label label-inverse"> On going</span></h3>
+
+                                    {% elseif Opportunity.status == 3 %}
+                                        <h3><span class="label label-info">Completed</span></h3>
+                                    {% endif %}
+                                    <br>
+                                </td>
+                                <td width='10%'></td>
+                            </tr>
+
+                        </table>
+
+
+                        <h6>Training</h6>
+
+                        <p align="justify">{{ Opportunity.training }}</p>
+                        <br>
+
+                        <h6>Expenses</h6>
+
+                        <p align="justify">{{ Opportunity.expenses }}</p>
+                        <br>
+
+                        <h6>Volunteer Hours</h6>
+                        {% for child in Opportunity.time %}
+                            <label>
+                                {{ child}}
+                            </label>
+                        {% endfor %}
+                        <br><br>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="box span4">
+            <div class="box-content ">
+
+                <div id="content" class="span12">
+                    <h6>Volunteers List</h6>
+
+                        {% if volunteers == null %}
+
+                            <hr>
+                            <p align="center">list not generated</p>
+                        {% else %}
+                            <br>
+                            <table class="table" width="100%">
+
+                                <tbody>
+                                {% for i in range(0, volunteers|length -1) %}
+                                    {% if i < 20 and volunteers[i].user != null%}
+                                        <tr>
+                                            <td class="center">
+                                                <a href="{{ path('ridwan_site_profile',{'ID' :volunteers[i].user.id}) }}">
+                                                    {{ volunteers[i].firstname }} {{ volunteers[i].lastname }}</a>
+                                                </a>
+
+
+                                            </td>
+
+
+                                        </tr>
+                                    {% endif %}
+
+
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table><hr>
+                            <p align="center"><a href="#"><button class="btn btn-info btn-small">see full list</button></a></p>
+
+
+
+
+                    {% endif %}
+                    <br>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        {% endblock %}
+
+        {% block delete %}
+        <div class="modal hide fade" id="delete">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Confirm</h3>
+            </div>
+            <div class="modal-body">
+                <p align="center">Are you sure you want to delete this Opportunity?
+                </p>
+
+
+            </div>
+            <div class="modal-footer">
+
+                <form action="empty" id="continue-form" method="POST">
+                    <input name="id" id="del-id" type="hidden" value="empty"/>
+                    <a href="#" class="btn" data-dismiss="modal">Close</a>
+                    <input type="submit" class="btn btn-primary" value="continue">
+                </form>
+
+            </div>
+        </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Physicalresourcesmapping" table="PhysicalResourcesMapping">
+    <indexes>
+      <index name="IDX_94DEADD85140DEDB" columns="volunteer"/>
+      <index name="IDX_94DEADD8C1EE637C" columns="organization"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="resource_UNIQUE" columns="resource"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="organization" target-entity="Organization">
+      <join-columns>
+        <join-column name="organization" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="resource" target-entity="Physicalresources">
+      <join-columns>
+        <join-column name="resource" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="volunteer" target-entity="Volunteerpersonal">
+      <join-columns>
+        <join-column name="volunteer" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Organizationcontactdetails" table="OrganizationContactDetails">
+    <unique-constraints>
+      <unique-constraint name="organization_UNIQUE" columns="organization"/>
+      <unique-constraint name="user_UNIQUE" columns="user"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="email" type="string" column="email" length="90" nullable="false"/>
+    <field name="fax" type="integer" column="fax" nullable="true"/>
+    <field name="phone" type="integer" column="Phone" nullable="true"/>
+    <field name="streetnumber" type="string" column="StreetNumber" length="20" nullable="false"/>
+    <field name="street" type="string" column="Street" length="90" nullable="false"/>
+    <field name="city" type="string" column="City" length="45" nullable="false"/>
+    <field name="divisionalsecretary" type="string" column="DivisionalSecretary" length="90" nullable="true"/>
+    <field name="district" type="string" column="District" length="45" nullable="true"/>
+    <field name="country" type="string" column="Country" length="45" nullable="true"/>
+    <field name="province" type="string" column="Province" length="45" nullable="true"/>
+    <field name="website" type="string" column="website" length="100" nullable="true"/>
+    <many-to-one field="organization" target-entity="Organization">
+      <join-columns>
+        <join-column name="organization" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+      <many-to-one field="user" target-entity="Authentication">
+          <join-columns>
+              <join-column name="user" referenced-column-name="id"/>
+          </join-columns>
+      </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Project" table="Project">
+    <unique-constraints>
+      <unique-constraint name="organization_UNIQUE" columns="organization"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cause" type="string" column="cause" length="45" nullable="false"/>
+      <field name="name" type="string" column="name" length="45" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="startdate" type="text" column="startdate" nullable="true"/>
+    <field name="proposedenddate" type="text" column="proposedenddate" nullable="true"/>
+    <field name="location" type="string" column="location" nullable="false"/>
+    <field name="actualenddate" type="text" column="actualenddate" nullable="true"/>
+    <field name="status" type="string" column="Status" length="2" nullable="true"/>
+    <many-to-one field="organization" target-entity="Organization">
+      <join-columns>
+        <join-column name="organization" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

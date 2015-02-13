@@ -1,0 +1,7 @@
+parameters:
+#    ridwan_opportunity.example.class: Ridwan\OpportunityBundle\Example
+
+services:
+#    ridwan_opportunity.example:
+#        class: %ridwan_opportunity.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,93 @@
+{% extends "::base.html.twig" %}
+
+
+
+{% block content %}
+
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+                    
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+		
+                        <div id="content" class="span10 ">
+			<!-- content starts -->
+			
+                        <div class="row-fluid">
+                            <div class="box span12">
+                                
+					<div class="box-header well">
+                                            
+						<h2><i class="icon-locked"></i> Change Password</h2>
+						
+					</div>
+					<div class="box-content span12 ">
+                                            
+                                            {{form_start(form)}}
+  
+                                             <div class="control-group error ">
+                      {{form_label(form.currentpassword, 'Current Password',{ 'label_attr': {'class': 'control-label'} })}}
+          
+                         <div class="controls">
+                        {{form_widget(form.currentpassword)}}
+                                <span class="help-inline">{{ form_errors(form.currentpassword) }}</span>
+                       </div></div>
+
+  <div class="control-group success">
+      {{form_label(form.newpassword, 'New Password',{ 'label_attr': {'class': 'control-label'} })}}
+                        
+                        <div class="controls">
+                        {{form_widget(form.newpassword)}}
+                               <span class="help-inline">{{ form_errors(form.newpassword) }}</span>
+                       </div></div>
+                                      
+                                                     
+                                                     <div class="control-group success">
+      {{form_label(form.confirmpassword, 'Confirm Password',{ 'label_attr': {'class': 'control-label'} })}}
+                        
+                        <div class="controls">
+                        {{form_widget(form.confirmpassword)}}
+                               <span class="help-inline">{{ form_errors(form.confirmpassword) }}</span>
+                       </div></div>
+                               {{ form_widget(form._token) }} 
+                                             <div class="control-group primary">         
+                                {{form_label(form.currentpassword, ' ',{ 'label_attr': {'class': 'control-label'} })}}   
+                            <div class="controls">
+                                 {{form_widget(form.submit,{'attr':{'class':'btn btn-success span3'}})}}                           
+                            </div></div>      
+                                            
+                                  {{form_end(form)}}
+                       </form>                 
+					</div>
+				</div>
+				
+			
+                          
+				
+			</div><!--/row-->
+			
+			
+			
+					
+			
+					<!-- content ends -->
+			</div><!--/#content.span10-->
+			
+				</div><!--/fluid-row-->
+		
+	</div><!--/.fluid-container-->
+        
+       
+    
+        
+
+
+
+{% endblock%}
+
+

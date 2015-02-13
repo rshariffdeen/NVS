@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block dashboard %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <header class="codrops-header">
+            <img class="center" src="{{ asset('bundles/ridwansite/images/Logo.jpg') }} " width="250px"/>
+
+        </header>
+        <br><h3 align="center" style="color: #000000">Greetings {{ app.user.username }}!</h3><br><br>
+        <h4 align="center"><a href="{{ path('ridwan_organization_welcome') }}" >please complete your profile</a></h4>
+        <br>
+
+        <p align="center">Note: Until you complete your profile your organization wont be listed in the system</p>
+
+    </div>
+{% endblock %}

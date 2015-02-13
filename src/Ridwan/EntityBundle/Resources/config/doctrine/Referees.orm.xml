@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Referees" table="Referees">
+    <unique-constraints>
+      <unique-constraint name="email_UNIQUE" columns="email"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="45" nullable="false"/>
+    <field name="address" type="string" column="address" length="100" nullable="true"/>
+    <field name="contactnumber" type="smallint" column="contactnumber" nullable="false"/>
+    <field name="email" type="string" column="email" length="45" nullable="false"/>
+    <field name="mobilenumber" type="smallint" column="mobilenumber" nullable="false"/>
+     
+      <field name="user" type="integer" column="user" nullable="false"/>
+  </entity>
+</doctrine-mapping>

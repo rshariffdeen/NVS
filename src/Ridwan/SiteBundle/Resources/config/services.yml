@@ -1,0 +1,18 @@
+parameters:
+   ridwan_site.authorization.class: Ridwan\SiteBundle\Controller\AuthorizationController
+   ridwan_site.session.class: Ridwan\SiteBundle\Controller\SessionController
+   ridwan_site.signin.class: Ridwan\SiteBundle\Controller\SigningController
+
+services:
+   ridwan_site.authorization:
+        class: %ridwan_site.authorization.class%
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        #arguments: [@service_id, "plain_value", %parameter%]
+   ridwan_site.session:
+        class: %ridwan_site.session.class%
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        #arguments: [@service_id, "plain_value", %parameter%]
+
+   ridwan_site.signin:
+           class: %ridwan_site.signin.class%
+           #arguments: [@service_id, "plain_value", %parameter%]

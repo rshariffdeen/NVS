@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ridwan\EntityBundle\Entity\Profile" table="Profile">
+    <unique-constraints>
+      <unique-constraint name="user_UNIQUE" columns="user"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="intro" type="text" column="intro" nullable="true"/>
+    <field name="reason" type="text" column="reason" nullable="true"/>
+    <field name="experience" type="text" column="Experience" nullable="true"/>
+    <field name="health" type="text" column="Health" nullable="true"/>
+    <field name="drivinglicense" type="text" column="drivinglicense" nullable="true"/>
+    <field name="arrested" type="text" column="arrested" nullable="true"/>
+    <field name="aggregatedrating" type="smallint" column="aggregatedRating" nullable="true"/>
+    <field name="totalweight" type="integer" column="totalWeight" nullable="true"/>
+      <field name="hours" type="integer" column="hours" nullable="true"/>
+      <field name="current" type="integer" column="current" nullable="true"/>
+      <field name="value" type="integer" column="value" nullable="true"/>
+      <field name="opportunities" type="array" column="opportunities" nullable="true"/>
+    <many-to-one field="user" target-entity="Authentication">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

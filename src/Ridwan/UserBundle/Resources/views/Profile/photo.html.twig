@@ -1,0 +1,72 @@
+{%  extends "::base.html.twig" %}
+
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+		
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+                        <div id="content" class="span10">
+			<!-- content starts -->
+			
+                        <div class="row-fluid">
+                            <div class="box span6 center">
+                                
+					<div class="box-header well">
+                                            
+						<h2> Upload Photo</h2>
+						
+					</div>
+					<div class="box-content span12 center">
+						
+                                       
+					
+                                                <div class="propic" >
+                                                    {%  if app.user.path %}
+                                                        <img src="{{app.user.path}}" width="300px" height="300px" style="border: 2px">
+                                                    {%  else  %}
+                                                        <img src="{{ asset('bundles/ridwansite/images/default.jpg') }}" width="300px" height="300px" style="border: 2px">
+                                                    {%  endif %}
+                                                </div> <br>
+                                                <form action="{{ path('ridwan_profile_photo') }}" method="post" {{ form_enctype(form) }}>
+                                                    please upload a high quality photo in the resolution of 400 x 400<br>
+                                                    {{ form_widget(form) }}
+                                                    <br>
+                                                   <input type="submit" class='btn btn-success' value="Update" />
+                                                   
+                                                </form>         
+                                               
+                                           
+				
+					</div>
+				</div>
+				
+			
+                          
+				
+			</div><!--/row-->
+			
+			
+                       
+					<!-- content ends -->
+			</div><!--/#content.span10-->
+			
+				</div><!--/fluid-row-->
+		
+	</div><!--/.fluid-container-->
+       
+        
+
+
+
+{% endblock%}

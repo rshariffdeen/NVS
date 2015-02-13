@@ -1,0 +1,179 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="box span5">
+    <div class="box-content">
+        <div class="pull-right">
+            <a href="{{ path('ridwan_organization_edit',{'id': details.id}) }}"> <button class="btn btn-group btn-small">update info</button></a>
+            <a href="{{ path('ridwan_profile_photo') }}"> <button class="btn btn-group btn-small">update logo</button></a>
+        </div>
+        <h3>General Information</h3>
+        <hr>
+
+        <div style="margin-left: 10%">
+        <h6>Organization Logo</h6>
+            {%  if app.user.path %}
+                <img src="{{app.user.path}}" width="150px" height="150px" style="border: 2px">
+            {%  else  %}
+                <img src="{{ asset('bundles/ridwansite/images/default.jpg') }}" width="150px" height="150px" style="border: 2px">
+            {%  endif %}
+            <br><br>
+        <h6>Organization Name</h6>
+        <h3>{{ details.name }}</h3><br>
+            <h6>Organization Type</h6>
+            <h3>{{ details.type }}</h3><br>
+            <h6>Location</h6>
+            <h3>{{ details.branch }}</h3><br>
+
+            </div>
+
+    </div>
+
+</div>
+    <div class="box span5">
+        <div class="box-content">
+
+            <div class="pull-right">
+                <a href="{{ path('ridwan_organizationcontact_edit',{'id': details.id}) }}"> <button class="btn btn-group btn-small">update info</button></a>
+            </div>
+            <h3>Contact Information</h3>
+            <hr>
+            <br>
+
+            <table>
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Street Number</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.Streetnumber }}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Street Name</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.Street }}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>City</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.City }}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Divisional Secretary</strong>
+
+                    </td>
+                    <td width="4%"> </td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.DivisionalSecretary }}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>District</strong>
+                    </td>
+                    <td width="4%"> </td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.District }}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Province</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.Province }}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Country</strong>
+                    </td>
+                    <td width="4%">
+                    </td>
+                    <td width="40%">
+                        <p align="left">
+                            {{ contact.Country }}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Phone Number</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%"> <p align="left">{{ contact.Phone }}</p> </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Fax Number</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%"> <p align="left">{{ contact.fax }}</p> </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Email</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%"> <p align="left">{{ contact.email }}</p> </td>
+                </tr>
+
+                <tr>
+                    <td width="16%"></td>
+                    <td width="40%">
+                        <strong>Website</strong>
+                    </td>
+                    <td width="4%"></td>
+                    <td width="40%"> <p align="left">{{ contact.website }}</p> </td>
+                </tr>
+            </table>
+            <br><br>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+

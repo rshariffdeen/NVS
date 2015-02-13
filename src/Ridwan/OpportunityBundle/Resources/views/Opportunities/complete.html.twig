@@ -1,0 +1,48 @@
+{%  extends "::base.html.twig" %}
+
+
+{% block content %}
+<div id="content" class="span10">
+   <div class="row-fluid">
+
+        <div class="box span12">
+            <div class="box-content ">
+                <div id="content" class="span12">
+                    <h2>Feedback</h2>
+                    <hr>
+
+                    <p align="left">Please provide feedback to the following volunteer(s) to complete this Opportunity</p>
+                    <br>
+                    <div style="margin-left: 10%">
+                    <table>
+                        {% for volunteer in volunteers %}
+                        <tr>
+                           <strong>
+                               <a href="{{ path('ridwan_volunteer_feedbackPage', {'userID': volunteer.user.id, 'opportunityID':Opportunity.id}) }}">
+                               {{ volunteer.firstname }} {{ volunteer.lastname }}
+                                   </a>
+
+                           </strong>
+
+                            </td>
+
+                        </tr>
+                        {%  endfor %}
+
+                    </table>
+                        </div>
+                    <br>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+{% endblock %}
+

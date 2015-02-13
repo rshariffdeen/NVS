@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Profile list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Intro</th>
+                <th>Reason</th>
+                <th>Experience</th>
+                <th>Health</th>
+                <th>Drivinglicense</th>
+                <th>Arrested</th>
+                <th>Aggregatedrating</th>
+                <th>Totalweight</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('profile_show', { 'id': entity.id }) }}">{{ entity.intro }}</a></td>
+                <td>{{ entity.reason }}</td>
+                <td>{{ entity.experience }}</td>
+                <td>{{ entity.health }}</td>
+                <td>{{ entity.drivinglicense }}</td>
+                <td>{{ entity.arrested }}</td>
+                <td>{{ entity.aggregatedrating }}</td>
+                <td>{{ entity.totalweight }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('profile_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('profile_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('profile_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

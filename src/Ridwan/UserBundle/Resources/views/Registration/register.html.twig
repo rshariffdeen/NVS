@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Let's Volunteer Register</title>
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwansite/css/normalize.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwansite/css/demo.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwansite/css/component.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwanuser/notification/css/ns-default.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ridwanuser/notification/css/ns-style-bar.css') }}"/>
+
+    <script src="{{ asset('bundles/ridwansite/js/modernizr.custom.js') }}"></script>
+
+</head>
+<body>
+
+{% if message is defined %}
+    <script type="text/javascript">
+        window.onload = function() {
+
+            // create the notification
+            var notification = new NotificationFx({
+                message : '<span class="icon icon-megaphone"></span><p>{{ message }}</p>',
+                layout : 'bar',
+                effect : 'slidetop',
+                type : 'notice', // notice, warning or error
+                onClose : function() {
+                    bttn.disabled = false;
+                }
+            });
+
+            // show the notification
+            notification.show();
+
+        }
+    </script>
+{% endif %}
+<div class="container">
+    <header class="codrops-header" style="margin-bottom: -100px">
+        <img class="center" src="{{ asset('bundles/ridwansite/images/Logo.jpg') }} " width="250px"/><br><br>
+
+    </header>
+    <section>
+        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    </section>
+</div>
+<script src="{{ asset('bundles/ridwansite/js/classie.js') }}"></script>
+<script src="{{ asset('bundles/ridwansite/js/stepsForm.js') }}"></script>
+<script>
+    var theForm = document.getElementById( 'theForm' );
+
+    new stepsForm( theForm, {
+        onSubmit : function( form ) {
+            // hide form
+            classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+            /*
+
+             or
+             AJAX request (maybe show loading indicator while we don't have an answer..)
+             */
+
+            // let's just simulate something...
+            var messageEl = theForm.querySelector( '.final-message' );
+            messageEl.innerHTML = 'Thank you! Check email for instructions.';
+            classie.addClass( messageEl, 'show' );
+            form.submit();
+        }
+    } );
+</script>
+<script src="{{ asset('bundles/ridwanuser/notification/js/notificationFx.js') }}"></script>
+<hr>
+<footer>
+    <p align="center"><strong>National Volunteering Secretariat, Sri Lanka </strong>&copy; 2014
+</footer>
+</body>
+</html>
+
+

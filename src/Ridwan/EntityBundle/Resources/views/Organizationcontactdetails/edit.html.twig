@@ -1,0 +1,98 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div id="content" class="span10">
+    <div class="row-fluid">
+
+        <br>
+        <h2>Organization Contact Information</h2>
+        <hr><br>
+        {{ form_start(edit_form) }}
+
+        <div class="control-group primary">
+            {{form_label(edit_form.email, 'Email',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.email)}}
+                <span class="help-inline">{{ form_widget(edit_form.email) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.website, 'Website',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.website)}}
+                <span class="help-inline">{{ form_widget(edit_form.website) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.fax, 'Fax Number',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.fax)}}
+                <span class="help-inline">{{ form_widget(edit_form.fax) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.phone, 'Phone Number',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.phone)}}
+                <span class="help-inline">{{ form_widget(edit_form.phone) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.streetnumber, 'Street Number',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.streetnumber)}}
+                <span class="help-inline">{{ form_widget(edit_form.streetnumber) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.street, 'Street Name',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.street)}}
+                <span class="help-inline">{{ form_widget(edit_form.street) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.city, 'City',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.city)}}
+                <span class="help-inline">{{ form_widget(edit_form.city) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.divisionalsecretary, 'Divisional Secretary',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.divisionalsecretary)}}
+                <span class="help-inline">{{ form_widget(edit_form.divisionalsecretary) }}</span>
+            </div>
+        </div>
+
+
+        <div class="control-group primary">
+            {{form_label(edit_form.country, 'Country',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.country)}}
+                <span class="help-inline">{{ form_widget(edit_form.country) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.country, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.submit, {'attr':{'class':'btn btn-success'}})}}
+                <span class="help-inline">{{ form_widget(edit_form.country) }}</span>
+            </div>
+        </div>
+
+        <br><br>
+
+        {{ form_end(edit_form) }}
+</div>
+    </div>
+{% endblock %}

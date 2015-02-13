@@ -1,0 +1,162 @@
+{% extends '::base.html.twig' %}
+
+{% block content%}
+<div id="content" class="span10">
+    <div class="row-fluid">
+
+        <br>
+        <h2>Edit Opportunity</h2>
+        <hr><br>
+        {{ form_start(edit_form) }}
+        <div class="control-group primary">
+            {{form_label(edit_form.title, 'Title',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.title)}}
+                <span class="help-inline">{{ form_errors(edit_form.title) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.role, 'Volunteer Role',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.role)}}
+                <span class="help-inline">{{ form_errors(edit_form.role) }}</span>
+            </div>
+        </div>
+        <div class="control-group primary">
+            {{form_label(edit_form.difficulty, 'Difficulty',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.difficulty)}}
+                <span class="help-inline">{{ form_errors(edit_form.difficulty) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.cause, 'Cause',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.cause)}}
+                <span class="help-inline">{{ form_errors(edit_form.cause) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.description, 'Long Description',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.description)}}
+                <span class="help-inline">{{ form_errors(edit_form.description) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.shortdescription, 'Short Description',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.shortdescription)}}
+                <span class="help-inline">{{ form_errors(edit_form.shortdescription) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.location, 'Location ',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.location)}}
+                <span class="help-inline">{{ form_errors(edit_form.location) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.numberofvolunteers, 'Number of Volunteers Required',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.numberofvolunteers)}}
+                <span class="help-inline">{{ form_errors(edit_form.numberofvolunteers) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.agegroup, 'Age Group',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.agegroup)}}
+                <span class="help-inline">{{ form_errors(edit_form.agegroup) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.training, 'Training',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.training)}}
+                <span class="help-inline">{{ form_errors(edit_form.training) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.expenses, 'Expenses',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.expenses)}}
+                <span class="help-inline">{{ form_errors(edit_form.expenses) }}</span>
+            </div>
+        </div>
+
+
+
+        <div class="control-group primary">
+            {{form_label(edit_form.startdate, 'Start Date',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.startdate,{'value':"now"|date("m/d/Y")})}}
+                <span class="help-inline">{{ form_errors(edit_form.startdate) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.enddate, 'Due Date',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.enddate,{'value':"now"|date("m/d/Y")})}}
+                <span class="help-inline">{{ form_errors(edit_form.enddate) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.time, 'Volunteering Hours',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {% for child in edit_form.time %}
+                    <label>
+                        {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+                        {{ child.vars.label|trans({}) }}
+                    </label>
+                {% endfor %}
+                <span class="help-inline">{{ form_errors(edit_form.enddate) }}</span>
+            </div>
+        </div>
+
+        {{form_widget(edit_form._token, {'type':'hidden'})}}
+
+
+
+        <div class="control-group primary">
+
+
+            <div class="controls">
+                {{form_widget(edit_form.submit,{'attr':{'class':'btn btn-success span3'}})}}
+
+            </div>
+        </div>
+        {{ form_end(edit_form) }}
+
+
+    </div>
+</div>
+
+
+{% endblock %}

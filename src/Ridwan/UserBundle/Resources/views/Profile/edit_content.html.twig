@@ -1,0 +1,47 @@
+<div class="box span4 center">
+    <div class="box-header well">
+
+        <h2><i class="icon-lock"></i> Account Settings</h2>
+
+    </div>
+    <div class="box-content">
+<br>
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal fos_user_profile_edit">
+    <div class="control-group ">
+        {{form_label(form.username, 'Username',{ 'label_attr': {'class': 'control-label'} })}}
+
+        <div class="controls">
+            {{form_widget(form.username)}}<br>
+            <p class="help-block">{{ form_errors(form.username) }}</p>
+        </div></div>
+
+    <div class="control-group ">
+        {{form_label(form.email, 'Email',{ 'label_attr': {'class': 'control-label'} })}}
+
+        <div class="controls">
+            {{form_widget(form.email)}}<br>
+            <p class="help-block">{{ form_errors(form.email) }}</p>
+        </div></div>
+
+    <div class="control-group ">
+        {{form_label(form.current_password, 'Account password',{ 'label_attr': {'class': 'control-label'} })}}
+
+        <div class="controls">
+            {{form_widget(form.current_password)}}<br>
+
+            <p class="help-block">{{ form_errors(form.current_password) }}</p>
+        </div></div>
+
+
+    {{ form_widget(form) }}
+    <div class="control-group ">
+        {{form_label(form.current_password, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+
+        <input class ="btn btn-primary" type="submit" value="Update"/>
+        <a href="{{ path('ridwan_site_home') }}"><button class="btn btn-danger">Cancel</button></a>
+    </div>
+</form>
+
+        </div>
+
+    </div>

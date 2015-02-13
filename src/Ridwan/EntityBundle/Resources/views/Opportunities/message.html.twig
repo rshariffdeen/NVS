@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Opportunities list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Shortdescription</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Numberofvolunteers</th>
+                <th>Agegroup</th>
+                <th>Training</th>
+                <th>Expenses</th>
+                <th>Difficulty</th>
+                <th>Systemmatch</th>
+                <th>Interested</th>
+                <th>Enrolled</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('opportunities_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.shortdescription }}</td>
+                <td>{% if entity.startdate %}{{ entity.startdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.enddate %}{{ entity.enddate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.numberofvolunteers }}</td>
+                <td>{{ entity.agegroup }}</td>
+                <td>{{ entity.training }}</td>
+                <td>{{ entity.expenses }}</td>
+                <td>{{ entity.difficulty }}</td>
+                <td>{{ entity.systemmatch }}</td>
+                <td>{{ entity.interested }}</td>
+                <td>{{ entity.enrolled }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('opportunities_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('opportunities_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('opportunities_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'RidwanUserBundle:Welcome:index.html.twig' %}
+
+{% block content %}
+    <div class="fs-form-wrap" id="fs-form-wrap">
+        <div class="fs-title">
+            <h1>Contact Information</h1>
+        </div>
+        <br><br><br><br>
+        {{ form_start(form,{'attr':{'id':'myform','class':'fs-form fs-form-full','autocomplete':'off'}}) }}
+        <ol class="fs-fields">
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q1" data-info="we will use this to contact you">What's your mobile number?</label>
+                {{ form_widget(form.mobile,{'class':'fs-anim-lower','attr':{'id':'q1','placeholder':"07x-xxxxxxx"}}) }}
+                {{ form_errors(form.mobile) }}
+
+            </li>
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q2" data-info="in case your mobile doesn't work">What's your landline number?</label>
+                {{ form_widget(form.phone,{'attr':{'class':'fs-anim-lower','id':'q2','placeholder':"xxx-xxxxxxx"}}) }}
+                {{ form_errors(form.phone) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q3" data-info="for our knowledge">What's your fax number?</label>
+                {{ form_widget(form.fax,{'attr':{'class':'fs-anim-lower','id':'q3','placeholder':"xxx-xxxxxxx"}}) }}
+                {{ form_errors(form.fax) }}
+            </li>
+
+
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q4" data-info="Home Address">What's your home address?</label>
+                {{ form_widget(form.streetnumber,{'attr':{'class':'fs-anim-lower','id':'q4','placeholder':"No: X/Y"}}) }}
+                {{ form_errors(form.streetnumber) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q5" data-info="Home Street">What is the name of the street?</label>
+                {{ form_widget(form.street,{'attr':{'class':'fs-anim-lower','id':'q5','placeholder':"Gamunu Mawatha"}}) }}
+                {{ form_errors(form.street) }}
+            </li>
+
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q5" data-info="City">What is your city?</label>
+                {{ form_widget(form.city,{'attr':{'class':'fs-anim-lower','id':'q5','placeholder':"Nugegoda"}}) }}
+                {{ form_errors(form.city) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q6" data-info="District">To which district do you belong?</label>
+                {{ form_widget(form.district,{'attr':{'class':'fs-anim-lower','id':'q6','placeholder':"Colombo District"}}) }}
+                {{ form_errors(form.district) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q7" data-info="Divisional Secretary">To which Divisional Secretary do you belong?</label>
+                {{ form_widget(form.divisionalsecretary,{'attr':{'class':'fs-anim-lower','id':'q7','placeholder':"Colombo District"}}) }}
+                {{ form_errors(form.divisionalsecretary) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q8" data-info="Province">In which province are you?</label>
+                {{ form_widget(form.province,{'attr':{'class':'fs-anim-lower','id':'q8','placeholder':"Western Province"}}) }}
+                {{ form_errors(form.province) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q9" data-info="Country">In which country do you live currently?</label>
+                {{ form_widget(form.country,{'attr':{'class':'fs-anim-lower','id':'q9','placeholder':"Sri Lanka"}}) }}
+                {{ form_errors(form.country) }}
+            </li>
+
+
+
+
+        </ol><!-- /fs-fields -->
+        {{ form_widget(form._token) }}
+        <button class="fs-submit" type="submit">Send answers</button>
+        </form><!-- /fs-form -->
+
+    </div>
+
+{% endblock %}
+

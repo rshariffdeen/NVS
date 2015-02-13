@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block content%}
+    <div id="content" class="span10">
+        <div class="row-fluid">
+
+            <br>
+            <h2>Profile Information</h2>
+            <hr><br>
+            {{ form_start(edit_form) }}
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+{% endblock %}

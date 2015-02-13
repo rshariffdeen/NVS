@@ -1,0 +1,52 @@
+ridwan_opportunity_index:
+    pattern:  /opportunities
+    defaults: { _controller: RidwanOpportunityBundle:Opportunity:index }
+    
+ridwan_opportunity_details:
+    pattern:  /opportunitydetails/{opportunityID}
+    defaults: { _controller: RidwanOpportunityBundle:Opportunity:detail }
+
+ridwan_opportunity_assignment_index:
+    pattern:  /opportunities/assign
+    defaults: { _controller: RidwanOpportunityBundle:Assignment:index }
+
+ridwan_opportunity_assignment_details:
+    pattern:  /opportunity/{opportunityID}/assign/details
+    defaults: { _controller: RidwanOpportunityBundle:Assignment:details }
+
+ridwan_opportunity_details_notification:
+    pattern:  /opportunitydetails/{opportunityID}/{notificationID}
+    defaults: { _controller: RidwanOpportunityBundle:Opportunity:notification }
+    
+ridwan_opportunity_new:
+    pattern:  /newopportunity
+    defaults: { _controller: RidwanOpportunityBundle:Opportunity:newopportunity }
+
+    
+ridwan_opportunity_completePage:
+    pattern:  /completeopportunity/{opportunityID}
+    defaults: { _controller: RidwanOpportunityBundle:Completion:completePage }
+    
+ridwan_volunteer_feedbackPage:
+    pattern:  /feedbackPage/volunteer/{userID}/{opportunityID}
+    defaults: { _controller: RidwanOpportunityBundle:Completion:volunteerFeedback }
+
+ridwan_volunteer_feedback:
+    pattern:  /feedback/volunteer/{userID}/{opportunityID}
+    defaults: { _controller: RidwanOpportunityBundle:Completion:updateVolunteer }
+    methods: POST
+
+
+ridwan_opportunity_suggest:
+    pattern:  /volunteer/suggest/{userID}/{opID}
+    defaults: { _controller: RidwanOpportunityBundle:Assignment:suggest }
+
+ridwan_opportunity_accept:
+    pattern:  /opportunity/accept/{opID}
+    defaults: { _controller: RidwanOpportunityBundle:Acceptance:accept }
+
+ridwan_opportunity_deny:
+    pattern:  /opportunity/deny/{opID}
+    defaults: { _controller: RidwanOpportunityBundle:Acceptance:deny }
+
+

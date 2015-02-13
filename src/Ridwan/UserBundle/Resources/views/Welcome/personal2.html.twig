@@ -1,0 +1,82 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="fs-form-wrap" id="fs-form-wrap">
+    <div class="fs-title">
+            <h1>Personal Information</h1>
+
+   </div>
+
+
+    <br><br><br><br>
+    {{ form_start(form,{'attr':{'id':'myform','class':'form-horizontal center fs-form fs-form-full','autocomplete':'off'}}) }}
+        <ol class="fs-fields">
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q1" data-info="we will use this name">What's your First name?</label>
+                {{ form_widget(form.firstname,{'class':'fs-anim-lower','attr':{'id':'q1','placeholder':"type your first name"}}) }}
+                {{ form_errors(form.firstname) }}
+
+            </li>
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q2" data-info="just to know">What's your Last name?</label>
+                {{ form_widget(form.lastname,{'attr':{'class':'fs-anim-lower','id':'q2','placeholder':"type your last name"}}) }}
+                {{ form_errors(form.lastname) }}
+            </li>
+
+            <li data-input-trigger>
+                <label class="fs-field-label fs-anim-upper" >Select the category that describes you</label>
+                {{ form_widget(form.category,{'attr':{'class':'cs-select cs-skin-boxes fs-anim-lower','id':'q8'}}) }}
+                {{ form_errors(form.category) }}
+
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q3" data-info="just to know">What's your nationality?</label>
+                {{ form_widget(form.nationality,{'attr':{'class':'fs-anim-lower','id':'q3','placeholder':"srilankan , indian etc"}}) }}
+                {{ form_errors(form.nationality) }}
+            </li>
+
+
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q4" data-info="NIC for Sri Lankans and Passport Number for Foreigners">What's your Identity?</label>
+                {{ form_widget(form.nicorpassport,{'attr':{'class':'fs-anim-lower','id':'q4','placeholder':"NIC or Passport Number"}}) }}
+                {{ form_errors(form.nicorpassport) }}
+            </li>
+
+            <li>
+                <label class="fs-field-label fs-anim-upper" for="q5" data-info="just to know">When is your birthday?</label>
+                {{ form_widget(form.dateofbirth,{'value':"now"|date("m/d/Y"),'attr':{'class':'fs-anim-lower','id':'q5','placeholder':"yyyy-mm-dd"}}) }}
+                {{ form_errors(form.dateofbirth) }}
+            </li>
+
+
+
+
+            <li data-input-trigger>
+                <label class="fs-field-label fs-anim-upper"  >What is your sex?</label>
+                {{ form_widget(form.gender,{'attr':{'class':'cs-select cs-skin-boxes fs-anim-lower','id':'q6'}}) }}
+                {{ form_errors(form.gender) }}
+
+            </li>
+
+            <li data-input-trigger>
+                <label class="fs-field-label fs-anim-upper"  >Are you married?</label>
+                {{ form_widget(form.Civilstatus,{'attr':{'class':'cs-select cs-skin-boxes fs-anim-lower','id':'q7'}}) }}
+                {{ form_errors(form.Civilstatus) }}
+
+            </li>
+
+
+
+
+
+        </ol><!-- /fs-fields -->
+            {{ form_widget(form._token) }}
+        <button class="fs-submit" type="submit">Send answers</button>
+    </form><!-- /fs-form -->
+
+</div>
+
+{% endblock %}
+

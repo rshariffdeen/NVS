@@ -1,0 +1,77 @@
+{% extends '::base.html.twig' %}
+
+{% block content%}
+<div id="content" class="span10">
+    <div class="row-fluid">
+
+        <br>
+        <h2>Profile Information</h2>
+        <hr><br>
+        {{ form_start(edit_form) }}
+        <div class="control-group primary">
+            {{form_label(edit_form.intro, 'Introduction',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.intro)}}
+                <span class="help-inline">{{ form_errors(edit_form.intro) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.reason, 'Reason to Volunteer',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.reason)}}
+                <span class="help-inline">{{ form_errors(edit_form.reason) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.experience, 'Previous Experience',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.experience)}}
+                <span class="help-inline">{{ form_errors(edit_form.experience) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.health, 'Health Condition',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.health)}}
+                <span class="help-inline">{{ form_errors(edit_form.health) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.drivinglicense, 'Do you have a driving licesnse?',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.drivinglicense)}}
+                <span class="help-inline">{{ form_errors(edit_form.drivinglicense) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.arrested, 'Were you arrested before?',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.arrested)}}
+                <span class="help-inline">{{ form_errors(edit_form.arrested) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(edit_form.arrested, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(edit_form.submit,{'attr':{'class':'btn btn-success'}})}}
+                <span class="help-inline">{{ form_errors(edit_form.arrested) }}</span>
+            </div>
+        </div>
+        {{ form_end(edit_form) }}
+</div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,353 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+<style>
+        #panel{
+            margin-top: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        #internal-panel{
+
+        }
+        #sub-panel{
+            text-align: center;
+            margin-left: 0px;
+            margin-right:0px;
+        }
+        #panel-button{
+            display: block;
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+        #panel-title{
+            text-align: center;
+
+        }
+        #panel-body{
+            margin-right: auto;
+            margin-left: 25px;
+        }
+        #myModalLabel{
+            text-align: center;
+        }
+        #swt{
+            margin-left: auto;
+        }
+        #attribute{
+            margin: 0px;
+        }
+        #chkbx{
+
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="content" class="span10">
+        <div class="row-fluid">
+
+            <div class="box span12">
+
+                <div class="box-content">
+                    <div id="panel">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+
+                            </div>
+                            <div class="panel-body">
+                                <div  id="panel-body" >
+                                    <div class="row">
+
+
+                            {%for i in 0..1%}
+
+                                    {%for j in 0..1%}
+                                        <a data-rel="tooltip" class="well span3 top-block" href="#" data-original-title="click to get statistics">
+                                            <span class="icon32 icon-color icon-pdf"></span><br>
+                                            <div>{{description[3*i + j]}}</div>
+                                            <button id="panel-button" class="btn btn-primary" data-toggle="modal" data-target="#{{modal[3*i+j]}}">
+                                                Generate
+                                            </button>
+
+                                        </a>
+
+                                    {%endfor%}
+
+                            {%endfor%}
+
+
+                                            <div class="modal hide fade" id="Individual" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                <div class="modal-dialog">
+
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                                                            <h3>Individual Information</h3>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <form class="form-horizontal" role="form" method="post" action="{{path('isuru_stat_individual')}}" target="_blank" onsubmit="return validate(1)">
+
+                                                                <div class="control-group primary">
+                                                                    <label class="control-label required">National ID</label>
+
+                                                                        <select name ='id' class="controls chzn-done">
+                                                                            {% for id in volid%}
+                                                                                <option value="{{id.nicORpassport}}">{{id.nicORpassport}}</option>
+                                                                            {% endfor %}
+
+                                                                        </select> <span class="help-inline"> </span>
+
+                                                                </div>
+
+                                                {%for iMAttribute in individualModalAttribute%}
+
+                                                    <label>
+                                                        <input type="checkbox" class="switch-input" name="check_list1[]" value="{{loop.index}}" checked>
+                                                        <span  class="switch-label" data-on="On" data-off="Off"></span>
+                                                        <span class="switch-handle"></span>
+                                                        <strong>{{iMAttribute}}</strong>
+                                                    </label>
+                                                                    <!--  <div class="row">
+                                                                         <div id="attribute" class="col-md-6">-->
+
+                                                                    <!--  </div>
+                                                                      <div class="col-md-4">
+                                                                          <div id ="swt" class="container">
+                                                                              <label class="switch">-->
+
+                                                                    <!--    </label>
+                                                                    </div>
+                                                                    <!--    </div>
+                                                                    </div>-->
+                                                {%endfor%}
+
+
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <button type="submit" name="submit" class="btn btn-primary">View Report</button>
+                                                            </div>
+                                                            </form>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="Overall" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                                                                <h3>Overall Information</h3>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form class="form-inline" role="form" method="post" action="{{path('isuru_stat_overall')}}" target="_blank" onsubmit="return validate(2)">
+
+
+                                                {%for oMAttribute in overallModalAttribute%}
+
+
+
+                                                                    <input type="checkbox" class="switch-input" name="check_list2[]" value="{{loop.index}}" checked>
+                                                                    <span  class="switch-label" data-on="On" data-off="Off"></span>
+                                                                    <span class="switch-handle"></span>
+                                                                    <strong>{{oMAttribute}}</strong><br>
+
+                                                {%endfor%}
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <button type="submit" name="submit" class="btn btn-primary">View Report</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="Monthly" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                                                                <h3>Monthly Information</h3>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form class="form-inline" role="form" method="post" action="{{path('isuru_stat_monthly')}}" target="_blank" onsubmit="return validate(3)">
+
+                                                {%for mMAttribute in monthlyModalAttribute%}
+
+
+
+                                                                    <input type="checkbox" class="switch-input" name="check_list3[]" value="{{loop.index}}" checked>
+                                                                    <span  class="switch-label" data-on="On" data-off="Off"></span>
+                                                                    <span class="switch-handle"></span><strong>{{mMAttribute}}</strong><br>
+
+                                                {%endfor%}
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <button type="submit" name="submit" class="btn btn-primary">View Report</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="District" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                                                                <h3>District Information</h3>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form class="form-inline" role="form" method="post" action="{{path('isuru_stat_district')}}" target="_blank" onsubmit="return validate(4)">
+
+                                                                    <div class="control-group primary">
+                                                                        <label class="control-label required">Select District</label>
+
+                                                                        <select name ='district' class="form-control custom">
+                                                                            {% for district in districts%}
+                                                                                <option value="{{district.district}}">{{district.district}}</option>
+                                                                            {% endfor %}
+
+                                                                        </select>  <span class="help-inline"> </span>
+
+                                                                    </div>
+
+
+                                                {%for dMAttribute in districtModalAttribute%}
+
+
+
+                                                                        <input type="checkbox" class="switch-input" name="check_list4[]" value="{{loop.index}}" checked>
+                                                                        <span  class="switch-label" data-on="On" data-off="Off"></span>
+                                                                        <span class="switch-handle"></span>
+                                                                         <strong>{{dMAttribute}}</strong><br>
+                                                {%endfor%}
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" name="submit" class="btn btn-primary">View Reports</button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" id="Profession" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                                                                    <h3>Profession Information</h3>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form class="form-inline" role="form" method="post" action="{{path('isuru_stat_profession')}}" target="_blank" onsubmit="return validate(5)">
+
+                                                                        <div class="control-group primary">
+                                                                            <label class="control-label required">Select Profession</label>
+
+                                                                            <select name ='profession' class="form-control custom">
+                                                                                {% for profession in professions%}
+                                                                                    <option value="{{profession.occupation}}">{{profession.occupation}}</option>
+                                                                                {% endfor %}
+
+                                                                            </select>  <span class="help-inline"> </span>
+
+                                                                        </div>
+
+
+                                                {%for pMAttribute in professionModalAttribute%}
+
+
+
+                                                                            <input type="checkbox" class="switch-input" name="check_list5[]" value="{{loop.index}}" checked>
+                                                                            <span  class="switch-label" data-on="On" data-off="Off"></span>
+                                                                            <span class="switch-handle"></span><strong>{{pMAttribute}}</strong><br>
+
+                                                {%endfor%}
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        <button type="submit" name="submit" class="btn btn-primary">View Reports</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal fade" id="Gender" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                                        <h2 class="modal-title" id="myModalLabel">Gender Information</h2>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form class="form-inline" role="form" method="post" action="{{path('isuru_stat_gender')}}" target="_blank" onsubmit="return validate(6)">
+
+                                                {%for gMAttribute in genderModalAttribute%}
+
+                                                                            <h6>{{gMAttribute}}</h6>
+
+                                                                            <input type="checkbox" class="switch-input" name="check_list6[]" value="{{loop.index}}" checked>
+                                                                            <span  class="switch-label" data-on="On" data-off="Off"></span>
+                                                                            <span class="switch-handle"></span>
+
+                                                {%endfor%}
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        <button type="submit" name="submit" class="btn btn-primary">View Reports</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                <br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+
+
+{% endblock %}
+
+        {% block javascripts %}
+                    <script>
+            //validate user input before submit
+            function validate(value){
+                var selected = false;
+                var checkbox = document.getElementsByName("check_list"+value+"[]");
+                for(var i in checkbox){
+                        if(checkbox[i].checked == true){
+                                selected = true;
+                                return true;
+                            }
+                    }
+                    if(selected == false){
+                        try{
+                        alert("You should select at least one choice");
+                        }catch(e){
+                                    
+                            }
+                        return false;
+                        }
+            }
+                        </script>
+{% endblock %}

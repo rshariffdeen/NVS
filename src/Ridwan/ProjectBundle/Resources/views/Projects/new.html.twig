@@ -1,0 +1,87 @@
+{%  extends "::base.html.twig" %}
+
+
+{% block content %}
+<div id="content" class="span10">
+    <div class="row-fluid">
+
+        <h2><i class="icon-locked"></i> Create New Project</h2>
+        <hr>
+        {{ form_start(form) }}
+
+        <div class="control-group primary">
+                    {{form_label(form.name, 'Project Name',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.name)}}
+                <span class="help-inline">{{ form_errors(form.name) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.cause, 'Project Cause',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.cause)}}
+                <span class="help-inline">{{ form_errors(form.cause) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
+            {{form_label(form.location, 'Project Location',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                {{form_widget(form.location)}}
+                <span class="help-inline">{{ form_errors(form.location) }}</span>
+            </div>
+        </div>
+
+        
+         <div class="control-group primary">
+                    {{form_label(form.description, 'Description',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.description)}}
+                <span class="help-inline">{{ form_errors(form.description) }}</span>
+            </div>
+        </div>
+        
+
+        <div class="control-group primary">
+                    {{form_label(form.startdate, 'Start Date',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.startdate,{'value':"now"|date("m/d/Y")})}}
+                <span class="help-inline">{{ form_errors(form.startdate) }}</span>
+            </div>
+        </div>
+        
+        <div class="control-group primary">
+                    {{form_label(form.proposedenddate, 'Proposed End Date',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.proposedenddate,{'value':"now"|date("m/d/Y")})}}
+                <span class="help-inline">{{ form_errors(form.proposedenddate) }}</span>
+            </div>
+        </div>        
+                    
+       
+        
+        <div class="control-group primary">
+                    {{form_label(form.proposedenddate, ' ',{ 'label_attr': {'class': 'control-label'} })}}
+
+            <div class="controls">
+                    {{form_widget(form.submit,{'attr':{'class':'btn btn-success span3'}})}}
+       
+            </div>
+        </div>
+        {{ form_end(form) }}
+        
+
+        
+
+
+    </div>
+
+</div>
+{% endblock %}

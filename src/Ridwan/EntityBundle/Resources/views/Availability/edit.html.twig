@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block content%}
+    <div id="content" class="span10">
+        <div class="row-fluid">
+
+            <br>
+            <h2>Availability Information</h2>
+            <hr><br>
+
+                {{ form_start(edit_form) }}
+
+
+                <div class="control-group primary" style="margin-left: 10%">
+
+
+                    <strong>Volunteering Hours</strong><br>
+                    <table width="100%">
+                        <tr>
+                            <br>
+
+                            {% for child in edit_form.time %}
+                                <label>
+                                    {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+                                    {{ child.vars.label|trans({}) }}
+                                </label>
+                            {% endfor %}
+
+
+                        </tr>
+                    </table>
+
+
+                </div>
+
+                <div class="control-group" style="margin-left: 10%">
+
+                    <strong>Volunteering Days</strong><br>
+
+                    <table>
+                        <tr>
+                            <br>
+                            {% for child in edit_form.days %}
+                                <label>
+                                    {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+                                    {{ child.vars.label|trans({}) }}
+                                </label>
+                            {% endfor %}
+                        </tr>
+                    </table>
+
+                    <br><br>
+                    {{ form_widget(edit_form.submit,{'attr':{'class':'btn btn-success '}}) }}
+                </div>
+
+
+
+
+            {{ form_end(edit_form) }}
+
+    </div>
+{% endblock %}
