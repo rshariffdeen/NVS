@@ -69,3 +69,7 @@ ridwan_site_reject_referee:
 ridwan_site_profile:
     pattern: /view/profile/{ID}
     defaults: {_controller: RidwanSiteBundle:Profile:profile}
+
+ridwan_site_root:
+    path: /
+    defaults: { _controller: RidwanSiteBundle:Home:home }
