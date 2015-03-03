@@ -35,38 +35,41 @@ class AcceptanceController extends Controller
         }
 
         //$enrollments[] = $user->getId();
-        if(!$this->isEnrolled($enrollments, $user)){
+        $status = $this->isEnrolled($enrollments, $user);
+        if(!$status){
         	$enrollments[] = $user->getId();
 	        $opportunity->setEnrolled($enrollments);
 	        $em->persist($profile);
         	$em->persist($opportunity);
 	        $em->flush();
-	}
-	else
-		die();
-	
 
+            return $this->redirect(
+                $this->generateUrl(
+                    'ridwan_opportunity_index',
+                    array('message' => 'You will be contacted by the organization soon', 'type' => 'S')
+                )
+            );
+        }
 
         return $this->redirect(
             $this->generateUrl(
                 'ridwan_opportunity_index',
-                array('message' => 'you will be contacted by the organization soon', 'type' => 'S')
+                array('message' => 'You are already enrolled for this opportunity', 'type' => 'E')
             )
         );
 
-        return $this->render('RidwanSiteBundle:Error:permission.html.twig');
+        //return $this->render('RidwanSiteBundle:Error:permission.html.twig');
     }
     
     public function isEnrolled($enrollments, $user)
     {
-    	foreach($user_id as $enrollments){
-		if($user_id == $user->getId())
-			return true;
-		echo user_id;
+    	foreach($enrollments as $user_id) {
+            if ($user_id == $user->getId())
+                return true;
+        }
+
+        return false;
 	}
-	
-	return false;		
-    }
 
     public function denyAction($opID)
     {

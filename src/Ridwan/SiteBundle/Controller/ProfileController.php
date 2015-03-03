@@ -15,29 +15,29 @@ class ProfileController extends Controller {
     public function profileAction($ID, Request $request) {
         $authenticatedUser = $this->getUser();
         if ($authenticatedUser) {
-	    $type = $authenticatedUser->getRoles()[0];
- 	    if ($type == 'NVS' || $type == 'Administrator'){
-            $em = $this->getDoctrine()->getManager();
-            $repository = $em->getRepository('RidwanEntityBundle:Authentication');
-            $user = $repository->find($ID);
-            if ($user == null ){
-                return $this->render('RidwanSiteBundle:Error:error.html.twig', array('message'=>" user doesn't exists"));
-            }
+            $type = $authenticatedUser->getRoles()[0];
+            if ($type == 'NVS' || $type == 'Administrator'){
+                $em = $this->getDoctrine()->getManager();
+                $repository = $em->getRepository('RidwanEntityBundle:Authentication');
+                $user = $repository->find($ID);
+                if ($user == null ){
+                    return $this->render('RidwanSiteBundle:Error:error.html.twig', array('message'=>" user doesn't exists"));
+                }
 
-            $profile = $this->getProfile($user);
-            if ($profile == null){
-                return $this->render('RidwanSiteBundle:Error:error.html.twig', array('message'=>" user doesn't exists"));
-            }
+                $profile = $this->getProfile($user);
+                if ($profile == null){
+                    return $this->render('RidwanSiteBundle:Error:error.html.twig', array('message'=>" user doesn't exists"));
+                }
 
-            if ($profile[0] == 'VOLUNTEER'){
+                if ($profile[0] == 'VOLUNTEER'){
 
-		    return $this->render('RidwanSiteBundle:Profile:volunteer.html.twig', $profile[1]);
-            }
-            if ($profile[0] == 'ORGANIZATION'){
+                return $this->render('RidwanSiteBundle:Profile:volunteer.html.twig', $profile[1]);
+                }
+                if ($profile[0] == 'ORGANIZATION'){
 
-                return $this->render('RidwanSiteBundle:Profile:organization.html.twig', $profile[1]);
+                    return $this->render('RidwanSiteBundle:Profile:organization.html.twig', $profile[1]);
+                }
             }
-	    }
             elseif($type == 'ORGANIZATION'){
                 $em = $this->getDoctrine()->getManager();
                 $repository = $em->getRepository('RidwanEntityBundle:Opportunities');
