@@ -260,29 +260,6 @@ class Notification
 
 
     /**
-     * Set opportunity
-     *
-     * @param integer $opportunity
-     * @return Notification
-     */
-    public function setopportunity($opportunity)
-    {
-        $this->opportunity = $opportunity;
-
-        return $this;
-    }
-
-    /**
-     * Get opportunity
-     *
-     * @return integer 
-     */
-    public function getopportunity()
-    {
-        return $this->opportunity;
-    }
-
-    /**
      * Set seen
      *
      * @param boolean $seen
@@ -303,5 +280,30 @@ class Notification
     public function getSeen()
     {
         return $this->seen;
+    }
+
+   
+
+    /**
+     * Set opportunity
+     *
+     * @param integer $opportunity
+     * @return Notification
+     */
+    public function setOpportunity($opportunity)
+    {
+        $this->opportunity = $opportunity;
+
+        return $this;
+    }
+
+    /**
+     * Get opportunity
+     *
+     * @return integer 
+     */
+    public function getOpportunity()
+    {
+        return $this->opportunity;
     }
 }
