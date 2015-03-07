@@ -4,4 +4,5 @@
 /app/logs/*
 /app/config/parameters.yml
 /app/config/parameters.yml.dist
+/app/config/config.yml
 .idea
