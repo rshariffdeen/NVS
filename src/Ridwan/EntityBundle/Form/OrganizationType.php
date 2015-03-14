@@ -17,6 +17,7 @@ class OrganizationType extends AbstractType
         $builder
             ->add('name')
             ->add('branch')
+            ->add('registration_no')
             ->add('type', 'choice', array(
                     'choices' => array(
                         'Government State' => 'Government State',
