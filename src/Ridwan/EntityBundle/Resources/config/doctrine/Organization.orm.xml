@@ -9,6 +9,7 @@
     </id>
     <field name="name" type="string" column="name" nullable="false"/>
     <field name="branch" type="string" column="branch" length="45" nullable="false"/>
+	<field name="registration_no" type="string" column="registration_no" length="30" nullable="false"/>
     <field name="type" type="string" column="type" length="45" nullable="true"/>
     <field name="previousprojects" type="text" column="previousprojects" nullable="true"/>
     <field name="status" type="smallint" column="status" nullable="false"/>
