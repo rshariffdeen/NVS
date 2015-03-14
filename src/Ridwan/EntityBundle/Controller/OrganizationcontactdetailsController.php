@@ -135,14 +135,14 @@ class OrganizationcontactdetailsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('RidwanEntityBundle:Organizationcontactdetails')->find($id);
+        $entity = $em->getRepository('RidwanEntityBundle:Organizationcontactdetails')->findOneBy(array('organization' => $id));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Organizationcontactdetails entity.');
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($id); // CHECK: possibly contains a similar error to the above line where the repo is fetched
 
         return  $this->render('RidwanEntityBundle:Organizationcontactdetails:edit.html.twig',array(
             'entity'      => $entity,
