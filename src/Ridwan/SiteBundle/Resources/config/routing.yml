@@ -5,6 +5,7 @@ ridwan_site_home:
 ridwan_site_loginpage:
     path:     /login
     defaults: { _controller: RidwanSiteBundle:Signing:login }
+    schemes: [https]
 
 ridwan_auth_login:
     path:     /Authlogin
