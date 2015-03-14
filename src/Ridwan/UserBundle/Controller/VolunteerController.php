@@ -77,9 +77,11 @@ class VolunteerController extends Controller
         );
         $form->handleRequest($request);
         if ($form->isValid()) {
+
             $volunteer = $form->getData();
             $volunteer->setStatus(0);
             $volunteer->setUser($this->getUser());
+
             $nationality = $volunteer->getNationality();
             $volunteer->setNationality($nationality->getName());
             $em = $this->getDoctrine()->getManager();
@@ -88,7 +90,7 @@ class VolunteerController extends Controller
                 $em->persist($volunteer);
                 $em->flush();
             } catch (\Exception $e) {
-               // echo $e;
+                echo $e;
                 return $this->render(
                     'RidwanUserBundle:Welcome:personal.html.twig', array(
                         'form' => $form->createView(),
