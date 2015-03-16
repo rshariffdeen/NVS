@@ -56,37 +56,61 @@ class AssignmentController extends Controller {
         $primarySkillMatch = $repositorySkills->findBy(array('primary' => $opportunity->getRole()));
         $secondarySkillMatch = $repositorySkills->findBy(array('secondary' => $opportunity->getRole()));
 
+
         foreach ($primarySkillMatch as $member){
             $user = $em->getRepository('RidwanEntityBundle:Profile')->findOneBy(array('user'=>$member->getUser()));
             if ($user != null){
-             $current = $user ->getCurrent();
-             }
+                $current = $user ->getCurrent();
+            }
+            else
+                break; // Added a break to break out of the for loop in case $user is null
+
+            $opportunities = $user->getOpportunities(); // Opportunities to which the user is currently eligible
+            $op_id = $opportunity->getId();
+
+            foreach($opportunities as $op){
+                if($op->getId() == $op_id)
+                    continue;
+            }
+
             if ($current == 0){
-            $volunteer= $repositoryVolunteers->findOneBy(array('user'=>$member->getUser()));
+                $volunteer= $repositoryVolunteers->findOneBy(array('user'=>$member->getUser()));
             
-            if ($volunteer->getStatus() == 3){                	
+                if ($volunteer->getStatus() == 3){
                     $volunteers[] = $volunteer;
                 }
-                }
+            }
 
         }
+
         foreach ($secondarySkillMatch as $member){
             $user = $em->getRepository('RidwanEntityBundle:Profile')->findOneBy(array('user'=>$member->getUser()));
             if ($user != null){
-             $current = $user ->getCurrent();
-             }
+                $current = $user ->getCurrent();
+            }
+            else
+                break; // Added a break to break out of the for loop in case $user is null
+
+            $opportunities = $user->getOpportunities(); // Opportunities to which the user is currently eligible
+            $op_id = $opportunity->getId();
+
+            foreach($opportunities as $op){
+                if($op->getId() == $op_id)
+                    continue;
+            }
+
             if ($current == 0){
-            $volunteer= $repositoryVolunteers->findOneBy(array('user'=>$member->getUser()));
+                $volunteer= $repositoryVolunteers->findOneBy(array('user'=>$member->getUser()));
             
-            if ($volunteer->getStatus() == 3){                	
+                if ($volunteer->getStatus() == 3){
                     $volunteers[] = $volunteer;
                 }
-                }
+            }
         }
 
         return $volunteers;
-
     }
+
 
     private function filterSuggestion($volunteers, $opID){
         if ($volunteers != null){
