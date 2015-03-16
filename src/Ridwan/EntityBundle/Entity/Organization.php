@@ -193,4 +193,32 @@ class Organization
     {
         return $this->user;
     }
+    /**
+     * @var string
+     */
+    private $registration_no;
+
+
+    /**
+     * Set registration_no
+     *
+     * @param string $registrationNo
+     * @return Organization
+     */
+    public function setRegistrationNo($registrationNo)
+    {
+        $this->registration_no = $registrationNo;
+    
+        return $this;
+    }
+
+    /**
+     * Get registration_no
+     *
+     * @return string 
+     */
+    public function getRegistrationNo()
+    {
+        return $this->registration_no;
+    }
 }
