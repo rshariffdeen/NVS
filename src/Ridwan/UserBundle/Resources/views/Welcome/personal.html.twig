@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block content %}
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <br>
     <div id="content" class="span10">
         <div class="row-fluid">
@@ -69,7 +70,7 @@
                 {{form_label(form.dateofbirth, 'Date of Birth',{ 'label_attr': {'class': 'control-label'} })}}
 
                 <div class="controls">
-                    {{form_widget(form.dateofbirth,{'value':"now"|date("m/d/Y")})}}
+                    {{form_widget(form.dateofbirth,{'value':"now"|date("m/d/Y"), 'id' : 'datepicker'})}}
                     <span class="help-inline">{{ form_errors(form.dateofbirth) }}</span>
                 </div>
             </div>
@@ -108,7 +109,13 @@
     </form>
 
 </div></div>
-
-
+    <script>
+    $(function() {
+    $( "#datepicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true
+    });
+    });
+    </script>
 {% endblock %}
 

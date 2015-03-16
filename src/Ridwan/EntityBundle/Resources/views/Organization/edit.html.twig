@@ -33,6 +33,14 @@
         </div>
 
         <div class="control-group primary">
+            {{form_label(edit_form.registration_no, 'Registration No.',{ 'label_attr': {'class': 'control-label'} })}}
+            <div class="controls">
+                {{form_widget(edit_form.registration_no)}}
+                <span class="help-inline">{{ form_widget(edit_form.registration_no) }}</span>
+            </div>
+        </div>
+
+        <div class="control-group primary">
         {{form_label(edit_form.type, ' ',{ 'label_attr': {'class': 'control-label'} })}}
         <div class="controls">
             {{form_widget(edit_form.submit,{'attr':{'class':'btn btn-success'}})}}
