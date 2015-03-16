@@ -42,10 +42,10 @@
                 <td width="40%">
                     <h6>Profile Picture</h6>
                     {% if app.user.path %}
-                        <img src="{{ app.user.path }}" width="150px" height="150px" style="border: 2px">
+                        <img src="{{ app.user.path }}" width="150px" height="150px" class="prof_pic">
                     {% else %}
                         <img src="{{ asset('bundles/ridwansite/images/default.jpg') }}" width="150px" height="150px"
-                             style="border: 2px">
+                             class="prof_pic">
                     {% endif %}
                     <br><br>
                 </td>

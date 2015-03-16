@@ -16,9 +16,9 @@
             <div style="margin-left: 10%">
 
                 {%  if app.user.path %}
-                    <img class = "pull-right" src="{{app.user.path}}" width="150px" height="150px" style="border: 2px">
+                    <img class = "pull-right prof_pic" src="{{app.user.path}}" />
                 {%  else  %}
-                    <img class = "pull-right"  src="{{ asset('bundles/ridwansite/images/default.jpg') }}" width="150px" height="150px" style="border: 2px">
+                    <img class = "pull-right prof_pic"  src="{{ asset('bundles/ridwansite/images/default.jpg') }}" >
                 {%  endif %}
 
 

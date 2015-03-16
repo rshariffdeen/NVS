@@ -418,7 +418,7 @@ class VolunteerController extends Controller
 
         return $this->render(
             'RidwanUserBundle:Welcome:referees.html.twig', array(
-                'database' => $database,
+                //'database' => $database,
                 'form' => $form->createView()
             )
         );
