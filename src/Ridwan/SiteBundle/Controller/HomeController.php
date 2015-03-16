@@ -45,11 +45,11 @@ class HomeController extends Controller
                 return $this->render('RidwanUserBundle:Welcome:volunteer.html.twig');
             }
 
-            if ($status == 1) { //Profile Completed
+            if ($status == 2) { //Profile Completed
                 return $this->render('RidwanUserBundle:Welcome:completed.html.twig');
             }
 
-            if ($status == 3) { //Profile Approved by NVS
+            if ($status == 1) { //Profile Approved by NVS
                 return $this->render('RidwanSiteBundle:Home:volunteer.html.twig', $this->generateVolunteerHome($request));
 
             }

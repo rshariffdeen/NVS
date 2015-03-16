@@ -492,10 +492,10 @@ html[xmlns] .slides {display: block;}
 /* Filters
 ------------------*/
 #filters {
-   
-    
-       display: block;
-    
+
+
+    display: block;
+
 }
 
 #filters ul li {
@@ -637,7 +637,7 @@ html[xmlns] .slides {display: block;}
 /* Footer - Twitter Widget
 ------------------*/
 #twitter {
-  
+
     float: left;
     display: block;
     list-style: none;
@@ -649,11 +649,11 @@ html[xmlns] .slides {display: block;}
              background: url(../images/tweet.png) no-repeat left top;
              padding-left: 25px;
              background-position-y: 4px;
-             }
+}
 #twitter li:last-child {padding: 0; margin: 0;background: url(../images/tweet.png) no-repeat left top;
                         padding-left: 25px;
                         background-position-y: 4px;
-                        }
+}
 #twitter a {color: #fff;}
 #twitter a:hover {color: #d4d4d4;}
 
@@ -776,10 +776,10 @@ a.post-entry:hover {
 /* Twitter */
 #twitter-blog li {
     line-height: 18px;
-margin: 2px 0 12px 0;
-background: url(../images/tweet.png) no-repeat left top;
-padding-left: 25px;
-background-position-y: 4px;
+    margin: 2px 0 12px 0;
+    background: url(../images/tweet.png) no-repeat left top;
+    padding-left: 25px;
+    background-position-y: 4px;
 }
 
 #twitter-blog li:last-child {margin-bottom: 0;}
@@ -815,7 +815,7 @@ background-position-y: 4px;
 
 .pricing-table {
     /*float: left;*/
-   
+
 }
 
 .pricing-table h3 {
@@ -1265,87 +1265,87 @@ or wrap each row of columns in a <div class="row"> */
 
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
-  background: #999 !important;
-  color: #fff !important;
-  }
-  
-  .dropdown-menu li > a:hover,
+    background: #999 !important;
+    color: #fff !important;
+}
+
+.dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
 .dropdown-submenu:hover > a {
-    
+
     background: #999 !important;
 }
- .form-signin {
-        max-width: 300px;
-        padding: 19px 29px 29px;
-       
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .form-signin .form-signin-heading,
-      .form-signin .checkbox {
-        margin-bottom: 10px;
-      }
-      .form-signin input[type="text"],
-      .form-signin input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-      
-        .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      
-       /* Featurettes
-    ------------------------- */
+.form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
 
-    .featurette-divider {
-      margin: 80px 0; /* Space out the Bootstrap <hr> more */
-    }
-    .featurette {
-      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
-      overflow: hidden; /* Vertically center images part 2: clear their floats. */
-    }
-    .featurette-image {
-      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-    }
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
 
-    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
-    .featurette-image.pull-left {
-      margin-right: 40px;
-    }
-    .featurette-image.pull-right {
-      margin-left: 40px;
-    }
+.container-narrow {
+    margin: 0 auto;
+    max-width: 700px;
+}
+.jumbotron {
+    margin: 60px 0;
+    text-align: center;
+}
+.jumbotron h1 {
+    font-size: 72px;
+    line-height: 1;
+}
 
-    /* Thin out the marketing headings */
-    .featurette-heading {
-      font-size: 50px;
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -1px;
-    }
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+    padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+    overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette-image {
+    margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+    margin-right: 40px;
+}
+.featurette-image.pull-right {
+    margin-left: 40px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
 /*    
     #Links
 ------------------------- */
 
 a,a:visited {color: #333; text-decoration: none; outline: 0; -webkit-transition: color 0.1s ease-in-out; -moz-transition: color 0.1s ease-in-out; -o-transition: color 0.1s ease-in-out; -transition: color 0.1s ease-in-out;}
-	a:hover, a:focus { color: #888;  text-decoration: none;}
-	p a, p a:visited { line-height: inherit; }
+a:hover, a:focus { color: #888;  text-decoration: none;}
+p a, p a:visited { line-height: inherit; }

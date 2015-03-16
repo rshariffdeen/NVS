@@ -393,4 +393,13 @@
   padding: 4px 5px 4px 20px;
   direction: rtl;
 }
+
+
+
+.prof_pic{
+    width: 150px;
+    height: 150px;
+    border: 2px;
+    object-fit: cover;
+}
 /* @end */

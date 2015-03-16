@@ -2,6 +2,7 @@
 
 
 {% block content %}
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <div id="content" class="span10">
     <div class="row-fluid">
 
@@ -165,4 +166,13 @@
     </div>
 
 </div>
+    {#datepicker month year selection fix#}
+    <script>
+        $(function() {
+            $( ".datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
 {% endblock %}

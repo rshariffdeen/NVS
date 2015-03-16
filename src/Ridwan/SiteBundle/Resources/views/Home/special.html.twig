@@ -9,9 +9,9 @@
             <div class="well nav-collapse sidebar-nav">
                 <p align="center">
                     {%  if app.user.path %}
-                        <img src="{{app.user.path}}" width="150px" height="150px" style="border: 2px">
+                        <img src="{{app.user.path}}" class="prof_pic">
                     {%  else  %}
-                        <img src="{{ asset('bundles/ridwansite/images/default.jpg') }}" width="150px" height="150px" style="border: 2px">
+                        <img src="{{ asset('bundles/ridwansite/images/default.jpg') }}" class="prof_pic">
                     {%  endif %}
                     <br><br><strong>{{app.session.get('name')}}</strong>
                 </p>
