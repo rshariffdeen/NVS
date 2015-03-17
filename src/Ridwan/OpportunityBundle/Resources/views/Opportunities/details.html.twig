@@ -81,18 +81,18 @@
                                     <h6>Difficulty</h6>
 
                                     <p align="justify">
-                                        {% if Opportunity.difficulty == 8 %}
-                                    <h3><span class="label label-important"> Extreme</span></h3>
-                                    {% elseif Opportunity.difficulty == 6 %}
-                                        <h3><span class="label label-warning"> Hard</span></h3>
+                                        {% if Opportunity.difficulty == 10 %}
+                                    <h3><span class="label label-important"> Hard</span></h3>
+                                    {% elseif Opportunity.difficulty == 8 %}
+                                        <h3><span class="label label-warning"> Difficult</span></h3>
 
-                                    {% elseif Opportunity.difficulty == 4 %}
+                                    {% elseif Opportunity.difficulty == 6 %}
                                         <h3><span class="label label-inverse"> Normal</span></h3>
 
-                                    {% elseif Opportunity.difficulty == 2 %}
+                                    {% elseif Opportunity.difficulty == 4 %}
                                         <h3><span class="label label-inverse"> Easy </span></h3>
 
-                                    {% elseif Opportunity.difficulty == 0 %}
+                                    {% elseif Opportunity.difficulty == 2 %}
                                         <h3><span class="label label-info"> Very Easy</span></h3>
                                     {% endif %}
 
